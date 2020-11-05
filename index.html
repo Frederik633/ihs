@@ -5,9 +5,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velkommen til IHS</title>
-    <link rel="stylesheet" href="style.css">
+    <!--    <link rel="stylesheet" href="style.css">-->
     <meta name="robots" content="noindex">
 </head>
+
+
+
+
+<style>
+    .forside img {
+        width: 28%;
+        margin: 30px 20px;
+
+    }
+
+    .forside {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .text {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 200px;
+        background-color: white;
+        font-size: 3rem;
+        text-align: center;
+
+    }
+
+</style>
 
 <body>
     <header>
@@ -23,5 +54,29 @@
         </nav>
     </header>
 
+    <section id="splash">
+        <img src="index_billeder/splash.jpg" alt="splash">
+    </section>
+
+    <section id="index_forside">
+        <div class="forside">
+            <img src="index_billeder/splash.jpg" alt="højskolen">
+            <div class="text">Velkommen til IDRÆTSHØJSKOLEN SØNDERBORG</div>
+            <img src="index_billeder/splash.jpg" alt="omos">
+            <img src="index_billeder/splash.jpg" alt="tilmeldning">
+        </div>
+
+    </section>
+
+
+    <script>
+        let id = 96
+
+    </script>
+
     <script src="script.js"></script>
-</body></html>
+
+
+</body>
+
+</html>
