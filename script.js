@@ -16,7 +16,7 @@ let temp = document.querySelector("template");
 
 
 
-const link = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/pages"
+const link = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/"
 
 document.addEventListener("DOMContentLoaded", hentData);
 
