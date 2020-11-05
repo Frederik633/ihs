@@ -5,9 +5,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velkommen til IHS</title>
-    <link rel="stylesheet" href="style.css">
+    <!--    <link rel="stylesheet" href="style.css">-->
     <meta name="robots" content="noindex">
 </head>
+
+<style>
+    #kontaktos .sectionwrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #kontaktos .kontakt {
+        flex-grow: 2;
+        flex-basis: 400px;
+        margin: 20px;
+        padding: 16px;
+        border-radius: 15px 15px 15px 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        text-align: left;
+
+
+    }
+
+    h2 {
+        font-size: 1rem;
+
+    }
+
+</style>
 
 <body>
     <header>
@@ -22,6 +50,57 @@
 
         </nav>
     </header>
+    <section id="kontaktos">
+
+        <div class="sectionwrapper">
+            <div class="kontakt">
+                <h1>Kontakt os</h1>
+                <p>Her på siden kan du finde alle relevante kontakt oplysninger og skrive en besked til os.
+                    Vi glæder os til at høre fra dig!<br>
+
+                    <br>tlf: (+45) 7442 1848<br>
+                    e mail: info@ihs.dk<br>
+                    CVR 35902619<br></p>
+
+                <h2>Adresse</h2>
+                <p>Idrætshøjskolen Sønderborg<br>
+                    Friheds allé 42<br>
+                    6400 Sønderborg<br></p>
+
+            </div>
+
+
+            <div class="kontakt">
+                <h1>Skriv til os</h1>
+                <p>
+                    Navn*<br>
+                    E-mail*<br>
+                    Emne<br>
+                    Besked<br>
+                </p>
+                <h2>Book en rundvisning</h2>
+                <p>
+                    Book din rundvisning via formularen nedenfor eller kontakt os
+                    på event@ihs.dk eller på tlf. 74 42 18 48<br>
+
+                    <br>Fornavn<br>
+                    Efternavn<br>
+                    E-mail<br>
+                    Tlf.<br>
+
+                    <br> Hvornår vil du på besøg?
+                    <br> Dag:
+                    <br> Måned:
+                    <br> År:
+
+                </p>
+            </div>
+
+
+        </div>
+    </section>
 
     <script src="script.js"></script>
-</body></html>
+</body>
+
+</html>
