@@ -24,6 +24,28 @@
         </nav>
     </header>
 
+    <section class="whole">
+        <h1 class="destination-titel">ALLE</h1>
+        <div class="filtre">
+            <button class="filter" data-køn="alle">Alle</button>
+            <button class="filter" data-køn="europa">Europa</button>
+            <button class="filter" data-køn="nordamerika">Nordamerika</button>
+            <button class="filter" data-køn="asien">Asien</button>
+            <button class="filter" data-køn="afrika">Afrika</button>
+        </div>
+
+        <section id="container"></section>
+
+        <template class="destination-template">
+            <article id="grid-article">
+                <h2 class="titel"></h2>
+                <h2 class="navn"></h2>
+                <p class="beskrivelse"></p>
+                <img src="" alt="">
+            </article>
+        </template>
+    </section>
+
     <script src="script.js"></script>
 </body>
 
