@@ -46,12 +46,20 @@ function toggleMenu() {
 
 let filter = "alle";
 let destinationer;
+let container = document.querySelector("#container");
+let temp = document.querySelector("template");
 
+
+
+const link = "http://vais.dk/kea/02_SEM/tema9/passion/wordpress/wp-json/wp/v2/posts"
+
+document.addEventListener("DOMContentLoaded", hentData);
 
 
 async function hentData() {
     const respons = await fetch(link);
     destinationer = await respons.json();
+    addEventListenersToButtons();
     vis(destinationer);
 }
 
@@ -77,4 +85,17 @@ function vis(destinationer) {
         }
 
     })
+
+    destinationer.feed.entry.forEach(dest => {
+
+        if (id == dest.gsx$id.$t) {
+            visDetaljer(dest)
+        }
+    })
+
+}
+
+function visDetaljer(dest) {
+    location.href = `singleview.html?id=${dest.gsx$id.$t}`;
+
 }
