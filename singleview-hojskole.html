@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velkommen til IHS</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="robots" content="noindex">
+</head>
+
+<style>
+    body {
+        font-family: sans-serif;
+        color: #3c3c3c;
+    }
+
+    .overskrift,
+    nav {
+        margin: 0 auto;
+        width: 80vw
+    }
+
+    .retter {
+
+        margin: 0 auto;
+        width: 80vw;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 20px;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    h2 {
+
+        height: 60px;
+        margin: 0;
+    }
+
+    .filter_nav {
+        display: flex;
+    }
+
+    .filter_nav h3 {
+        margin-right: 12px;
+        cursor: pointer;
+    }
+
+    .ret {
+        cursor: pointer;
+
+    }
+
+    .valgt {
+
+        color: greenyellow;
+    }
+</style>
+
+
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Forside</a></li>
+                <li><a href="om_os.html">Om os</a></li>
+                <li><a href="kontakt_os.html">Kontakt os</a></li>
+                <li><a href="tilmelding.html">Tilmelding</a></li>
+                <li><a href="rejser.html">Rejser</a></li>
+                <li><a href="hoejskolen.html">Højskolen</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <section class="ret">
+        <h2></h2>
+        <div></div>
+        <img src="" alt="">
+        <p id="short_text"></p>
+        <p id="price"></p>
+    </section>
+
+
+
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
+        let theDish;
+        document.addEventListener("DOMContentLoaded", getTheDish);
+        async function getTheDish() {
+
+            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/fag" + id;
+            let jsonData = await fetch(url);
+            theDish = await jsonData.json();
+            //console.log("LOADING DONE",theDish);
+            //            showDishes();
+
+            document.querySelector("h2").textContent = theDish.title.rendered;
+            document.querySelector("img").src = theDish.billede.guid;
+            document.querySelector("#short_text").textContent = theDish.kort;
+            document.querySelector("#price").textContent = theDish.pris + " $";
+            document.querySelector(".ret").addEventListener("click", function() {
+                window.history.back();
+
+            });
+        }
+    </script>
+</body></html>

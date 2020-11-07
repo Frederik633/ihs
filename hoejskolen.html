@@ -7,71 +7,57 @@
     <title>Velkommen til IHS</title>
     <link rel="stylesheet" href="style.css">
     <meta name="robots" content="noindex">
+    <style>
+        body {
+            font-family: sans-serif;
+            color: #3c3c3c;
+        }
+
+        .overskrift,
+        nav {
+            margin: 0 auto;
+            width: 80vw
+        }
+
+        .retter {
+
+            margin: 0 auto;
+            width: 80vw;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h2 {
+
+            height: 60px;
+            margin: 0;
+        }
+
+        .filter_nav {
+            display: flex;
+        }
+
+        .filter_nav h3 {
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        .ret {
+            cursor: pointer;
+
+        }
+
+        .valgt {
+
+            color: greenyellow;
+        }
+    </style>
 </head>
-
-<style>
-    #grid-article {
-        background-color: white;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .destination-titel {
-        text-align: center;
-        font-family: 'Roboto Mono', monospace;
-        color: white;
-        border-bottom: 1px solid #1b709f;
-        margin-left: 300px;
-        margin-right: 300px;
-        padding-top: 20px;
-        margin-bottom: 20px;
-
-        font-size: 2em;
-    }
-
-    .whole {
-        margin-top: 10vh;
-    }
-
-    .filtre {
-        width: 100vw;
-        max-width: 1000px;
-        margin: 3rem auto;
-        margin-top: 1rem;
-        margin: 0 auto;
-        display: grid;
-        grid-gap: 10px;
-        grid-template-columns: repeat(auto-fill, minmax(175px, 10fr));
-    }
-
-    .filtre button {
-        background-color: rgba(255, 255, 255, 0.8);
-        color: #195b80;
-        font-size: 13px;
-        padding: 5px 5px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-
-        font-family: 'Roboto Mono', monospace;
-    }
-
-    #container {
-        width: 90vw;
-        max-width: 1000px;
-        margin: 0 auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        display: grid;
-        grid-gap: 10px;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-
-    .destination-template article {
-        background-color: white;
-    }
-
-</style>
 
 <body>
     <header>
@@ -88,29 +74,156 @@
         </nav>
     </header>
 
-    <section class="whole">
-        <h1 class="destination-titel">ALLE</h1>
-        <div class="filtre">
-            <button class="filter" data-køn="specialefag">Specialefag</button>
-            <button class="filter" data-køn="idraetsfag">Idrætsfag</button>
-            <button class="filter" data-køn="almene-fag">Almene fag</button>
-            <button class="filter" data-køn="interessefag">Interessefag</button>
-            <button class="filter" data-køn="faelles-fag">Fælles fag</button>
-        </div>
+    <!-- TEMPLATES  -->
+    <template id="filter_btns_tmpl">
+        <h3>Huop</h3>
+    </template>
 
-        <section id="container"></section>
+    <template id="course_header_tmpl">
+        <h1>Huop</h1>
+        <section class="course_section"></section>
+    </template>
 
-        <template class="destination-template">
-            <article id="grid-article">
-                <h2 class="titel"></h2>
-                <h2 class="navn"></h2>
-                <p class="beskrivelse"></p>
-                <img src="" alt="">
-            </article>
-        </template>
-    </section>
+    <template id="ret_tmpl">
+        <section class="ret">
+            <h2></h2>
+            <div></div>
+            <img src="" alt="">
+            <p id="short_text"></p>
+            <p id="price"></p>
+        </section>
+    </template>
 
-    <script src="script.js"></script>
-</body>
+    <!-- SITE MENU-->
+    <h1 class="overskrift"></h1>
+    <nav>
+        <a href="index.html">Hjem</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">Om os</a>
+        <a href="contact.html">Kontakt</a>
 
-</html>
+    </nav>
+
+
+
+    <!--   Filter  btns -->
+    <nav class="filter_nav">
+        <h3>Alle</h3>
+    </nav>
+    <!--  Dishes  -->
+    <main class="retter"></main>
+
+
+    <script>
+        "use strict"
+
+
+        let theCategories;
+
+        let theDishes;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+
+            getTheCategories();
+        }
+
+        async function getTheCategories() {
+            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/categories";
+            let jsonData = await fetch(url);
+            theCategories = await jsonData.json();
+            generateCategoryBTNs();
+
+            getTheDishes();
+
+        }
+
+
+        async function getTheDishes() {
+
+            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/fag";
+            let jsonData = await fetch(url);
+            theDishes = await jsonData.json();
+            console.log("LOADING DONE");
+
+
+            document.querySelector(".filter_nav h3").click();
+        }
+
+
+        function generateCategoryBTNs() {
+
+            let dest = document.querySelector(".filter_nav");
+            let temp = document.querySelector("#filter_btns_tmpl");
+
+            document.querySelector(".filter_nav h3").dataset.id = "alle";
+            document.querySelector(".filter_nav h3").addEventListener("click", categoryClick);
+            theCategories.forEach(category => {
+                // fjern uncategorised
+                if (category.slug != "uncategorised") {
+                    let klon = temp.cloneNode(true).content;
+                    klon.querySelector("h3").textContent = category.name;
+                    klon.querySelector("h3").dataset.name = category.name;
+                    klon.querySelector("h3").dataset.id = category.id;
+
+                    klon.querySelector("h3").addEventListener("click", categoryClick)
+                    dest.appendChild(klon);
+                }
+
+            })
+        }
+
+        function categoryClick() {
+
+            console.log(this.dataset.id);
+
+
+            filterContent(this.dataset.id);
+
+            document.querySelectorAll(".filter_nav h3").forEach(each => each.classList.remove("valgt"));
+            this.classList.add("valgt");
+
+        }
+
+
+        function filterContent(theFilter) {
+
+            let filtrerede;
+            if (theFilter == "alle") {
+                filtrerede = theDishes;
+            } else {
+                filtrerede = theDishes.filter(ret => ret.categories[0] == theFilter);
+
+            }
+            console.log(filtrerede)
+            showPosts(filtrerede);
+        }
+
+        function showPosts(theFilteredJson) {
+            let dest = document.querySelector(".retter");
+            let temp = document.querySelector("#ret_tmpl");
+            dest.innerHTML = "";
+            theFilteredJson.forEach(ret => {
+                //                console.log(ret)
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("h2").textContent = ret.title.rendered;
+                klon.querySelector("img").src = ret.billede.guid;
+                klon.querySelector("#short_text").textContent = ret.kort;
+                klon.querySelector("#price").textContent = ret.pris + " $";
+                klon.querySelector(".ret").addEventListener("click", function() {
+                    dishClick(ret.id)
+                });
+                dest.appendChild(klon);
+
+            });
+
+
+        }
+
+        function dishClick(id) {
+            console.log("ID", id);
+            location.href = "singleview-hojskole.html?id=" + id;
+        }
+    </script>
+</body></html>
