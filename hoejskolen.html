@@ -7,9 +7,139 @@
     <title>Velkommen til IHS</title>
     <meta name="robots" content="noindex">
     <style>
+        /*------ BURGERMENU + NORMAL MENU ---------*/
+        header nav a:visited {
+            color: black;
+        }
+
+        header nav a:hover {
+            color: green;
+        }
+
+        header nav a:active {
+            color: black;
+        }
+
+        header {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            background-color: white;
+        }
+
+        input[type=text] {
+            padding-top: 10px;
+            border: 1px solid black;
+            font-family: sans-serif;
+            font-size: 1rem;
+        }
+
+        header form {
+            padding-top: 36px;
+            padding-left: 90px;
+        }
+
+
+        .menu {
+            display: flex;
+            list-style-type: none;
+            flex-direction: column;
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+
+        }
+
+        header a {
+            padding: 10px 30px;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-size: 1.2rem;
+            color: black;
+            align-self: center;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+        .menuknap {
+            display: inline-block;
+        }
+
+
+        .logo {
+            background-image: url(https://static.wixstatic.com/media/91140a_8232be4747aa4e78a7473068da1124b2.png/v1/fill/w_200,h_114,al_c,q_85,usm_0.66_1.00_0.01/91140a_8232be4747aa4e78a7473068da1124b2.webp);
+            background-size: cover;
+            width: 160px;
+            height: 91.5px;
+
+
+        }
+
+        /*---------------menu slut--------------*/
+
+        .forside img {
+            width: 28%;
+            margin: 30px 40px;
+
+        }
+
+        .forside {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .text {
+            position: fixed;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 200px;
+            background-color: white;
+            font-size: 3rem;
+            text-align: center;
+
+        }
+
+        img.wp-image-167 {
+            width: 100%;
+            height: 90vh;
+            max-width: none;
+            background-size: cover;
+            background-position: 0% 100%;
+            border-radius: 0px;
+        }
+
+        figure {
+            display: block;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-inline-start: 0;
+            margin-inline-end: 0;
+        }
+
+        /*---------------------------@media---------------------------*/
+
+        @media(min-width:700px) {
+            .menuknap {
+                display: none;
+            }
+
+            .menu.hidden {
+                display: flex;
+            }
+
+            .menu {
+                flex-direction: row;
+            }
+        }
+
+
         body {
             font-family: sans-serif;
-            color: #3c3c3c;
         }
 
         .overskrift,
@@ -18,7 +148,7 @@
             width: 80vw
         }
 
-        .retter {
+        .fagene {
 
             margin: 0 auto;
             margin-top: 100px;
@@ -34,32 +164,83 @@
 
         h2 {
             margin: 0;
+            font-size: 18px;
             padding-top: 34px;
             align-self: center;
         }
 
+        /*---------- OVERFAG UNDERFAG BESKRIVELSE ----------*/
+
+        #overfag-title {
+            margin: 0 auto;
+        }
+
+        .overfag-beskrivelse {
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border: black 1px solid;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        #underfag-title {
+            margin: 0 auto;
+        }
+
+        .underfag-beskrivelse {
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border: black 1px solid;
+            max-width: 400px;
+            text-align: center;
+        }
+
+
+        /*---------- FILTER ----------*/
+
         .filter_nav {
+            justify-content: center;
             display: flex;
+            background-color: white;
+            border-top: black solid 1px;
+            padding-top: 22px;
         }
 
         .filter_nav h3 {
-            margin-right: 12px;
+            margin-right: 40px;
             cursor: pointer;
+            padding: 10px;
+            color: black;
+            transition-duration: .5s;
+            border-left: white 1px solid;
+            border-right: white 1px solid;
         }
 
-        .ret {
+        .filter_nav h3:hover {
+            padding-right: 20px;
+            padding-left: 20px;
+            border-left: lightblue 1px solid;
+            border-right: lightblue 1px solid;
+
+        }
+
+        .fag {
             cursor: pointer;
             border: black 1px solid;
             text-align: center;
             transition-duration: .5s;
+            max-width: 250px;
+            color: black;
+
         }
 
-        .ret:hover {
-            background-color: aqua;
-        }
 
-        .valgt {
-            color: olivedrab;
+        .fag:hover {
+            background-color: white;
+            border-bottom: solid 10px lightblue;
+            color: black;
         }
 
     </style>
@@ -68,30 +249,54 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">Forside</a></li>
-                <li><a href="om_os.html">Om os</a></li>
-                <li><a href="kontakt_os.html">Kontakt os</a></li>
-                <li><a href="tilmelding.html">Tilmelding</a></li>
-                <li><a href="rejser.html">Rejser</a></li>
-                <li><a href="hoejskolen.html">Højskolen</a></li>
-            </ul>
-
+            <div class="menuknap"><img src="burgermenu.png" alt="burgermenu"></div>
+            <div class="menu hidden">
+                <a href="index.html">
+                    <div class="logo"></div>
+                </a>
+                <a href="index.html">Forside</a>
+                <a href="hoejskolen.html">Højskolen</a>
+                <a href="rejser.html">Rejser</a>
+                <a href="tilmelding.html">Tilmelding</a>
+                <a href="om_os.html">Om os</a>
+                <a href="kontakt_os.html">Kontakt os</a>
+                <div class="search-container">
+                    <form action="">
+                        <input type="text" placeholder="Search.." name="search">
+                    </form>
+                </div>
+            </div>
         </nav>
     </header>
 
+
+    <!-- Om overfagene -->
+
+
+
+
+
+
+    <div class="overfag-beskrivelse">
+        <h1 class="overfag-title">Fagnavn her</h1>
+
+        <p>om fagene...</p>
+    </div>
+
+
+
     <!-- TEMPLATES  -->
     <template id="filter_btns_tmpl">
-        <h3>Huop</h3>
+        <h3>Alle</h3>
     </template>
 
-    <template id="course_header_tmpl">
+    <template id="overfag_header_tmpl">
         <h1>Huop</h1>
-        <section class="course_section"></section>
+        <section class="overfag_section"></section>
     </template>
 
-    <template id="ret_tmpl">
-        <section class="ret">
+    <template id="fag_tmpl">
+        <section class="fag">
             <h2></h2>
             <div></div>
             <img src="" alt="">
@@ -105,11 +310,22 @@
 
     <!--   Filter  btns -->
     <nav class="filter_nav">
-        <h3>Alle</h3>
+        <h3></h3>
     </nav>
-    <!--  Dishes  -->
-    <main class="retter"></main>
+    <!--  Fagene  -->
+    <main class="fagene"></main>
 
+
+    <!-- UNDERFAGENE -->
+
+    <section class="underfag">
+        <div class="underfag-beskrivelse">
+            <h1 class="underfag-title">Fagnavn her</h1>
+
+            <p>om fagene...</p>
+        </div>
+
+    </section>
 
     <script>
         "use strict"
@@ -117,7 +333,7 @@
 
         let theCategories;
 
-        let theDishes;
+        let overFag;
 
         document.addEventListener("DOMContentLoaded", start);
 
@@ -132,16 +348,16 @@
             theCategories = await jsonData.json();
             generateCategoryBTNs();
 
-            getTheDishes();
+            underFag();
 
         }
 
 
-        async function getTheDishes() {
+        async function underFag() {
 
             let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/fag";
             let jsonData = await fetch(url);
-            theDishes = await jsonData.json();
+            underFag = await jsonData.json();
             console.log("LOADING DONE");
 
 
@@ -177,10 +393,6 @@
 
 
             filterContent(this.dataset.id);
-
-            document.querySelectorAll(".filter_nav h3").forEach(each => each.classList.remove("valgt"));
-            this.classList.add("valgt");
-
         }
 
 
@@ -188,9 +400,9 @@
 
             let filtrerede;
             if (theFilter == "alle") {
-                filtrerede = theDishes;
+                filtrerede = underFag;
             } else {
-                filtrerede = theDishes.filter(ret => ret.categories[0] == theFilter);
+                filtrerede = underFag.filter(fag => fag.categories[0] == theFilter);
 
             }
             console.log(filtrerede)
@@ -198,15 +410,15 @@
         }
 
         function showPosts(theFilteredJson) {
-            let dest = document.querySelector(".retter");
-            let temp = document.querySelector("#ret_tmpl");
+            let dest = document.querySelector(".fagene");
+            let temp = document.querySelector("#fag_tmpl");
             dest.innerHTML = "";
-            theFilteredJson.forEach(ret => {
-                //                console.log(ret)
+            theFilteredJson.forEach(fag => {
+                //                console.log(fag)
                 let klon = temp.cloneNode(true).content;
-                klon.querySelector("h2").textContent = ret.title.rendered;
-                klon.querySelector(".ret").addEventListener("click", function() {
-                    dishClick(ret.id)
+                klon.querySelector("h2").textContent = fag.title.rendered;
+                klon.querySelector(".fag").addEventListener("click", function() {
+                    dishClick(fag.id)
                 });
                 dest.appendChild(klon);
 
