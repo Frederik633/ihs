@@ -243,7 +243,6 @@
             border-bottom: solid 10px lightblue;
             color: black;
         }
-
     </style>
 </head>
 
@@ -361,6 +360,25 @@
         </div>
     </footer>
 
+    <!------------------- POPUP ------------------->
+
+    <Section id="popup">
+        <article>
+            <button id="luk">X</button>
+            <img src="" alt="">
+            <div>
+                <h2></h2>
+                <h3></h3>
+                <a class="instagram" href=""></a>
+                <a class="youtube" href=""></a>
+                <a class="giphy" href=""></a>
+                <a class="website" href=""></a>
+                <a class="shop" href=""></a>
+                <h4>Cost: <span class="pris"></span></h4>
+            </div>
+        </article>
+    </Section>
+
     <script>
         "use strict"
 
@@ -463,10 +481,17 @@
 
         function dishClick(id) {
             console.log("ID", id);
-            location.href = "singleview-hojskole.html?id=" + id;
         }
 
-    </script>
-</body>
+        async function loadJSON() {
+            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
+            let jsonData = await fetch(url);
+            underFag = await jsonData.json();
+            addEventListenersToButtons();
+            vis(personer);
+            document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
 
-</html>
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+        }
+    </script>
+</body></html>
