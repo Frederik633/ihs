@@ -10,51 +10,53 @@
 </head>
 
 <style>
+    /*
     #grundloggende_omos .sectionwrapper {
-        display: flex;
-        flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 
     }
 
 
     #grundloggende_omos .omos {
-        flex-grow: 2;
-        flex-basis: 400px;
-        margin: 20px;
-        padding: 16px;
-        border-radius: 15px 15px 15px 15px;
+    flex-grow: 2;
+    flex-basis: 400px;
+    margin: 20px;
+    padding: 16px;
+    border-radius: 15px 15px 15px 15px;
 
 
     }
 
     #grundloggende_omos h1 {
-        font-size: 2rem;
-        color: #000000;
-        margin: 20px;
-        padding: 16px;
-        text-align: left;
+    font-size: 2rem;
+    color: #000000;
+    margin: 20px;
+    padding: 16px;
+    text-align: left;
 
 
     }
 
     #grundloggende_omos p {
-        font-size: 1rem;
-        color: #000000;
-        line-height: 1.2;
-        margin-top: 10px;
-        text-align: left;
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.2;
+    margin-top: 10px;
+    text-align: left;
 
 
     }
 
     #grundloggende_omos img {
-        width: 100%;
-        clear: both;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+    width: 100%;
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 
     }
+*/
 
     #grundloggende_delaf img {
         width: 20%;
@@ -64,6 +66,42 @@
         margin-right: auto;
 
     }
+
+    .alttekst .wp-block-group__inner-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 2;
+        flex-basis: 400px;
+        margin: 20px;
+        padding: 16px;
+
+
+
+    }
+
+    .alttekst img {
+        width: 100%;
+        height: auto;
+
+    }
+
+    @media(min-width:1000px) {
+        .alttekst .wp-block-group__inner-container {
+            flex-wrap: nowrap;
+
+        }
+
+        .alttekst img {
+            width: 600px;
+            padding-left: 16px;
+
+        }
+
+
+    }
+
+
+
 
     /*
     footer {
@@ -145,6 +183,7 @@
         <h1>Om os </h1>
         <div class="sectionwrapper">
 
+            <!--
             <div class="omos">
                 <h2> Vores værdisæt</h2>
                 <p>
@@ -175,12 +214,15 @@
                     Vi giver alle ansatte mulighed for faglig udvikling og værdsætter deres høje faglige niveau. Et højt fagligt niveau er en væsentlig forudsætning for at kunne skabe udvikling og dannelse hos eleverne<br><br>
                 </p>
             </div>
+-->
 
+            <!--
             <div class="omos">
                 <h2>VIDEO</h2>
                 <img src="omos_billeder/ski.jpg" alt="ski">
 
             </div>
+-->
 
 
 
@@ -227,6 +269,13 @@
 
         </div>
     </footer>
+
+    <script>
+        let id = 14
+
+    </script>
+
+
     <script src="script.js"></script>
 </body>
 
