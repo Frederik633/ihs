@@ -355,7 +355,7 @@
 
         async function underFag() {
 
-            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/fag";
+            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
             let jsonData = await fetch(url);
             underFag = await jsonData.json();
             console.log("LOADING DONE");
