@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rejser</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="robots" content="noindex">
 </head>
 
 <style>
@@ -37,6 +39,7 @@
         width: 100%;
 
     }
+
 </style>
 
 <body>
@@ -45,17 +48,23 @@
 
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">Forside</a></li>
-                <li><a href="om_os.html">Om os</a></li>
-                <li><a href="kontakt_os.html">Kontakt os</a></li>
-                <li><a href="tilmelding.html">Tilmelding</a></li>
-                <li><a href="rejser.html">Rejser</a></li>
-                <li><a href="hoejskolen.html">Højskolen</a></li>
-
-
-            </ul>
-
+            <div class="menuknap"><img src="burgermenu.png" alt="burgermenu"></div>
+            <div class="menu hidden">
+                <a href="index.html">
+                    <div class="logo"></div>
+                </a>
+                <a href="index.html">Forside</a>
+                <a href="hoejskolen.html">Højskolen</a>
+                <a href="rejser.html">Rejser</a>
+                <a href="tilmelding.html">Tilmelding</a>
+                <a href="om_os.html">Om os</a>
+                <a href="kontakt_os.html">Kontakt os</a>
+                <div class="search-container">
+                    <form action="">
+                        <input type="text" placeholder="Search.." name="search">
+                    </form>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -200,5 +209,7 @@
         </div>
 
     </div>
+    <script src="script.js"></script>
+</body>
 
-</body></html>
+</html>
