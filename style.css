@@ -75,6 +75,54 @@
 
  /*---------------menu slut--------------*/
 
+
+
+
+ /*_________________________Footer_________________________*/
+ footer {
+     display: flex;
+     flex-wrap: wrap;
+     color: #3b4141;
+     margin-top: 20px;
+     border-top: 0.5px solid #e2e2e2;
+
+ }
+
+
+ .osher {
+     text-align: center;
+     flex-grow: 2;
+     flex-basis: 400px;
+     margin: 20px;
+     padding: 16px;
+     border-radius: 15px 15px 15px 15px;
+
+ }
+
+
+ .findos {
+     text-align: center;
+     flex-grow: 2;
+     flex-basis: 400px;
+     margin: 20px;
+     padding: 16px;
+     border-radius: 15px 15px 15px 15px;
+
+ }
+
+
+
+ .osher img {
+     width: 7%;
+     clear: both;
+
+ }
+
+ .findos img {
+     width: 5%;
+
+ }
+
  /*---------------------------@media---------------------------*/
 
  @media(min-width:700px) {
