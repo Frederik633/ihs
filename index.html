@@ -11,62 +11,72 @@
 
 
 <style>
-    .forside img {
-        width: 100%;
-        margin: 30px 40px;
-
+    .splash_forside .wp-block-group__inner-container {
+        position: relative;
     }
 
-    .forside {
-        display: flex;
-        justify-content: center;
-
-    }
-
-    .text {
-        position: sticky;
-        left: 50%;
-        transform: translate(-50%, -200%);
+    .splash_forside .text {
+        position: absolute;
+        left: 30%;
+        top: 100px;
+        /*transform: translate(-50%, -250%);*/
         width: 600px;
         height: 200px;
         background-color: white;
+        opacity: 70%;
         font-size: 3rem;
         text-align: center;
+    }
 
+    .splash_forside .p_text {
+        position: absolute;
+        background-color: white;
+        opacity: 70%;
+        left: 30%;
+        top: 320px;
+        font-size: 1.2rem;
+        width: 580px;
+        height: 100px;
+        padding: 10px;
     }
 
     img.wp-image-167 {
         width: 100%;
-        height: 90vh;
         max-width: none;
         background-size: cover;
-        background-position: 0% 100%;
+        /* background-position: 0% 100%;*/
         border-radius: 0px;
     }
 
     .forside_link img {
         width: 100%;
         height: auto;
-
+        position: relative;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
     }
 
-    .wp-block-group__inner-container {
-        display: flex;
+    .forside_link img:hover {
+        opacity: 50%;
     }
 
-    .wp-block-image size-large .forside_link p {
-        position: sticky;
-        left: 50%;
-        transform: translate(-50%, -200%);
-        width: 600px;
-        height: 200px;
+    .link_group .wp-block-group__inner-container {
+        width: 100vw;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        grid-gap: 30px;
+        margin: 10px;
+    }
+
+    .forside_link figcaption {
+        position: absolute;
+        transform: translate(180%, -800%);
         background-color: white;
-        font-size: 3rem;
-        text-align: center;
+        opacity: 80%;
+        font-size: 1.2rem;
+
 
     }
-
 </style>
 
 <body>
@@ -97,14 +107,10 @@
     </section>
 
 
-    <section id="index_forside">
-        <div class="forside">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-        </div>
+    <section>
 
     </section>
+
     <footer>
         <div class="osher">
             Følg os her<br><br>
@@ -141,11 +147,8 @@
 
     <script>
         let id = 96
-
     </script>
 
     <script src="script.js"></script>
 
-</body>
-
-</html>
+</body></html>
