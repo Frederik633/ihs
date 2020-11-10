@@ -227,13 +227,14 @@
             border-left: lightblue 1px solid;
             border-right: lightblue 1px solid;
 
+
         }
 
         .fag {
             cursor: pointer;
             border: black 1px solid;
             text-align: center;
-            transition-duration: .5s;
+            transition-duration: .3s;
             max-width: 250px;
             color: black;
 
@@ -242,66 +243,11 @@
 
         .fag:hover {
             background-color: white;
-            border-bottom: solid 10px lightblue;
+            border-bottom: solid 8px lightblue;
             color: black;
         }
 
-<<<<<<< HEAD
         /*--------------------------- DROPDOWN MFERS ----------------------*/
-
-        /* Dropdown Button */
-        .dropbtn {
-            background-color: #3498DB;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Dropdown button on hover & focus */
-        .dropbtn:hover,
-        .dropbtn:focus {
-            background-color: #2980B9;
-        }
-
-        /* The container <div> - needed to position the dropdown content */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            width: 100vw;
-        }
-
-        /* Dropdown Content (Hidden by Default) */
-        .dropdown-content {
-            display: none;
-            position: sticky;
-            background-color: #f1f1f1;
-            width: 100%;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        /* Links inside the dropdown */
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        /* Change color of dropdown links on hover */
-        .dropdown-content a:hover {
-            background-color: #ddd
-        }
-
-        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-        .show {
-            display: block;
-        }
-
-=======
->>>>>>> origin/main
     </style>
 </head>
 
@@ -359,18 +305,6 @@
             <p id="price"></p>
         </section>
     </template>
-
-    <div class="dropdown">
-        <button onclick="myFunction()" class="fag_tmpl">Dropdown</button>
-        <div id="myDropdown" class="dropdown-content">
-            <nav class="filter_nav">
-                <h1 class="underfag-title">Fagnavn her</h1>
-
-                <p></p>
-            </nav>
-        </div>
-    </div>
-
 
     <!-- SITE MENU-->
     <h1 class="overskrift"></h1>
@@ -532,28 +466,5 @@
         function dishClick(id) {
             console.log("ID", id);
         }
-
-        /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.fag_tmpl')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-
     </script>
-</body>
-
-</html>
+</body></html>
