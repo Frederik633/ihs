@@ -205,7 +205,6 @@
             display: flex;
             background-color: white;
             border-top: black solid 1px;
-            padding-top: 22px;
             width: 100%;
 
         }
@@ -237,18 +236,52 @@
             transition-duration: .3s;
             max-width: 250px;
             color: black;
-
+            background-color: white;
+            padding-bottom: 32px;
         }
 
 
         .fag:hover {
             background-color: white;
-            border-bottom: solid 8px lightblue;
-            color: black;
+            border-bottom: solid 10px lightblue;
         }
 
-        /*--------------------------- DROPDOWN MFERS ----------------------*/
+        /* POPUP */
 
+        #popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgb(0, 0, 0, 0.4);
+        }
+
+        .popup-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            transition-duration: .3s;
+        }
+
+        .close:hover {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -297,15 +330,24 @@
         <section class="overfag_section"></section>
     </template>
 
+    <!----- KNAP ----->
+
     <template id="fag_tmpl">
-        <section class="fag">
+        <div class="fag">
             <h2></h2>
-            <div></div>
-            <img src="" alt="">
-            <p id="short_text"></p>
-            <p id="price"></p>
-        </section>
+        </div>
     </template>
+
+    <div id="popup" class="popupvindue">
+
+        <!---- CONTENT ---->
+
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <p>...</p>
+        </div>
+
+    </div>
 
     <!-- SITE MENU-->
     <h1 class="overskrift"></h1>
@@ -362,11 +404,10 @@
         </div>
     </footer>
 
-    <!------------------- POPUP ------------------->
+
 
     <script>
         "use strict"
-
 
         let theCategories;
 
@@ -468,7 +509,24 @@
             console.log("ID", id);
         }
 
-    </script>
-</body>
+        let popup = document.getElementById("popup");
 
-</html>
+        let btn = document.getElementsByClassName("fag");
+
+        let span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            popup.style.display = "block";
+        }
+
+        span.onclick = function() {
+            popup.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
+    </script>
+</body></html>
