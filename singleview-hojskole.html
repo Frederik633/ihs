@@ -77,35 +77,34 @@
         </nav>
     </header>
 
-    <section class="ret">
-        <h2></h2>
-        <div></div>
-        <img src="" alt="">
-        <p id="short_text"></p>
-        <p id="price"></p>
-    </section>
-
-
-
+    <template id="fag_tmpl">
+        <section class="fag">
+            <h2></h2>
+            <div></div>
+            <img src="" alt="">
+            <p id="short_text"></p>
+            <p id="price"></p>
+        </section>
+    </template>
 
     <script>
         let urlParams = new URLSearchParams(window.location.search);
         let id = urlParams.get("id");
-        let theDish;
-        document.addEventListener("DOMContentLoaded", getTheDish);
-        async function getTheDish() {
+        let underFag;
+        document.addEventListener("DOMContentLoaded", underFag);
+        async function underFag() {
 
             let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/fag" + id;
             let jsonData = await fetch(url);
-            theDish = await jsonData.json();
+            fag = await jsonData.json();
             //console.log("LOADING DONE",theDish);
             //            showDishes();
 
-            document.querySelector("h2").textContent = theDish.title.rendered;
-            document.querySelector("img").src = theDish.billede.guid;
-            document.querySelector("#short_text").textContent = theDish.kort;
-            document.querySelector("#price").textContent = theDish.pris + " $";
-            document.querySelector(".ret").addEventListener("click", function() {
+            document.querySelector("h2").textContent = fag.title.rendered;
+            document.querySelector("img").src = fag.billede.guid;
+            document.querySelector("#short_text").textContent = fag.kort;
+            document.querySelector("#price").textContent = fag.pris + " $";
+            document.querySelector(".fag").addEventListener("click", function() {
                 window.history.back();
 
             });
