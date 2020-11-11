@@ -7,6 +7,30 @@
     <title>Velkommen til IHS</title>
     <link rel="stylesheet" href="style.css">
     <meta name="robots" content="noindex">
+    <style>
+        .buttons {
+            display: flex;
+        }
+
+        a.button {
+
+            appearance: button;
+            text-decoration: none;
+            color: green;
+            cursor: pointer;
+            border: black 1px solid;
+            text-align: center;
+            transition-duration: .3s;
+            max-width: 250px;
+            color: black;
+            background-color: white;
+            padding-bottom: 32px;
+        }
+
+        a:hover {
+            color: green;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,22 +56,29 @@
         </nav>
     </header>
 
+    <div class="buttons">
+
+        <a href="https://booking.ihs.dk/da/tilmelding-hojskole.asp" class="button">Højskole</a>
+        <a href="https://www.ihs.dk/ugekurser" class="button">Ugekurser</a>
+        <a href="https://www.ihs.dk/book-en-rundvisning" class="button">Book en rundvisning</a>
+
+    </div>
+
     <section id="grundloggende_omos">
-        <h1>Om os </h1>
         <div class="sectionwrapper">
-
-
-            <template>
-                <sectionwrapper>
-                    <button>Højskole</button>
-                    <button>Ugekurser</button>
-                    <button>Book en Rundvisning</button>
-                </sectionwrapper>
-            </template>
 
         </div>
 
     </section>
+
+    <div class="buttons">
+
+        <a href="https://booking.ihs.dk/da/tilmelding-hojskole.asp" class="button">Højskole</a>
+        <a href="https://www.ihs.dk/ugekurser" class="button">Ugekurser</a>
+        <a href="https://www.ihs.dk/book-en-rundvisning" class="button">Book en rundvisning</a>
+
+    </div>
+
 
     <footer>
         <div class="osher">
@@ -84,11 +115,8 @@
 
     <script>
         let id = 10
-
     </script>
 
     <script src="script.js"></script>
 
-</body>
-
-</html>
+</body></html>
