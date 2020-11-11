@@ -11,16 +11,27 @@
 
 
 <style>
-    .splash_forside .wp-block-group__inner-container {
-        position: relative;
+    * {
+        box-sizing: border-box;
     }
 
+    header+section {
+        display: grid;
+
+    }
+
+    header+section>figure,
+    header+section>figure+.splash_forside {
+        display: grid;
+        border: 5px solid yellow;
+        grid-row: 1;
+        grid-column: 1;
+        place-content: center;
+    }
+
+
     .splash_forside .text {
-        position: absolute;
-        left: 20%;
-        top: 80px;
         width: 320px;
-        height: 120px;
         background-color: white;
         opacity: 80%;
         font-size: 2rem;
@@ -28,23 +39,23 @@
     }
 
     .splash_forside .p_text {
-        position: absolute;
         background-color: white;
         opacity: 80%;
-        left: 20%;
-        top: 210px;
         font-size: 0.8rem;
         width: 300px;
-        height: 55px;
         padding: 10px;
     }
 
-    img.wp-image-167 {
+    .forside video {
+        position: relative;
         width: 100%;
-        height: 50vh;
-        max-width: none;
-        background-size: cover;
-        border-radius: 0px;
+        height: auto;
+    }
+
+    .velkomst_tekst .wp-block-group__inner-container {
+        display: grid;
+        grid-template-columns: 1fr;
+
     }
 
     .forside_link img {
@@ -58,6 +69,12 @@
         opacity: 50%;
     }
 
+    .forside_link figure {
+        display: grid;
+        border: 1px solid #444;
+        max-width: 400px;
+    }
+
     .forside_link {
         position: relative;
     }
@@ -67,7 +84,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
         grid-gap: 30px;
-        margin: 10px 10px 10px 10px;
+        margin: 10px;
     }
 
     .forside_link figcaption {
@@ -75,7 +92,7 @@
         position: absolute;
         top: 42%;
         left: 30%;
-        background-color: white;
+        text-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         opacity: 90%;
         font-size: 1.8rem;
         padding: 8px;
@@ -89,24 +106,10 @@
 
     @media(min-width:700px) {
 
-        img.wp-image-167 {
-            width: 100%;
-            height: 37vw;
-            max-width: none;
-            background-size: cover;
-            border-radius: 0px;
-        }
 
         .splash_forside .p_text {
-            position: absolute;
-            background-color: white;
-            opacity: 80%;
-            left: 30%;
-            top: 320px;
             font-size: 1.2rem;
             width: 580px;
-            height: 100px;
-            padding: 10px;
 
         }
 
@@ -114,25 +117,17 @@
             display: block;
             position: absolute;
             left: 47%;
-            top: 400px;
+            top: 600px;
             font-size: 1.2rem;
             width: 50px;
             height: 20px;
             padding: 10px;
         }
 
-
         .splash_forside .text {
-            position: absolute;
-            left: 30%;
-            top: 100px;
+
             width: 600px;
-            height: 200px;
-            padding-top: 15px;
-            background-color: white;
-            opacity: 80%;
             font-size: 3rem;
-            text-align: center;
         }
     }
 

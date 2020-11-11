@@ -1,6 +1,8 @@
  * {
      margin: 0 auto;
+     box-sizing: border-box;
  }
+
 
  /*------------menu-------------*/
 
@@ -127,7 +129,7 @@
  /*---------------------------footer slutter---------------------------*/
  /*---------------------------@media---------------------------*/
 
- @media(min-width:700px) {
+ @media(min-width:1276px) {
      .menuknap {
          display: none;
      }
