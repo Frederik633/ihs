@@ -20,6 +20,7 @@
 
     }
 
+
     header+section>figure,
     header+section>figure+.splash_forside {
         display: grid;
@@ -42,7 +43,7 @@
         background-color: white;
         opacity: 80%;
         font-size: 0.8rem;
-        width: 300px;
+        width: 320px;
         padding: 10px;
     }
 
@@ -55,7 +56,14 @@
     .velkomst_tekst .wp-block-group__inner-container {
         display: grid;
         grid-template-columns: 1fr;
+    }
 
+    .velkomst_tekst .wp-block-group__inner-container>figure,
+    .velkomst_tekst .wp-block-group__inner-container>.velkomst_tekst {
+        grid-column: 1;
+        grid-row: 1;
+        place-content: center;
+        align-self: center;
     }
 
     .forside_link img {
@@ -92,7 +100,9 @@
         position: absolute;
         top: 42%;
         left: 30%;
-        text-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        color: white;
+        font-weight: bold;
+        text-shadow: 3px 3px 5px #000;
         opacity: 90%;
         font-size: 1.8rem;
         padding: 8px;
@@ -109,7 +119,7 @@
 
         .splash_forside .p_text {
             font-size: 1.2rem;
-            width: 580px;
+            width: 600px;
 
         }
 
@@ -156,14 +166,14 @@
         </nav>
     </header>
 
-    <section>
+    <section id="indhold">
 
     </section>
 
 
-    <section>
+    <!-- <section>
 
-    </section>
+ </section>-->
 
     <footer>
         <div class="osher">
