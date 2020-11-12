@@ -21,24 +21,22 @@
     }
 
 
-    header+section>figure,
-    header+section>figure+.splash_forside {
-        display: grid;
-        border: 5px solid yellow;
-        grid-row: 1;
-        grid-column: 1;
-        place-content: center;
-    }
+    /*  header+section>figure,
+  header+section>figure+.splash_forside {
+  display: grid;
+  grid-row: 1;
+  grid-column: 1;
+  place-content: center;
+  }*/
 
     .velkomst_tekst .text,
     .velkomst_tekst .p_text {
         max-width: 700px;
-        margin: 0 auto;
+        /* margin: 0 auto;*/
     }
 
 
     .splash_forside .text {
-        /*width: 320px;*/
         color: white;
         font-weight: bold;
         text-shadow: 3px 3px 5px #000;
@@ -55,43 +53,59 @@
         text-shadow: 3px 3px 5px #000;
         opacity: 80%;
         font-size: 0.8rem;
-        /*width: 320px;*/
-        padding: 10px;
         font-family: proxima-nova, sans-serif;
         font-weight: 300;
         font-style: normal;
     }
 
     .forside video {
-        /*   position: relative;*/
-        width: 100%;
-        height: auto;
-        opacity: 60%;
+        width: 100vw;
+        height: 75vh;
+        object-fit: cover;
+        opacity: 50%;
+        object-position: top;
+
     }
 
-    .velkomst_tekst .wp-block-group__inner-container {
-        display: grid;
-        grid-template-columns: 1fr;
+    /*.velkomst_tekst .wp-block-group__inner-container {
+    display: grid;
+    grid-template-columns: 1fr;
     }
 
     .velkomst_tekst .wp-block-group__inner-container>figure,
     .velkomst_tekst .wp-block-group__inner-container>.velkomst_tekst {
-        grid-column: 1;
-        grid-row: 1;
-        place-content: center;
-        align-self: center;
+    grid-column: 1;
+    grid-row: 1;
+    place-content: center;
+    align-self: center;
     }
 
     .velkomst_tekst .wp-block-group__inner-container>figure {
-        height: 50vh;
+    height: 75vh;
+    overflow: hidden;
+    }*/
+
+    .splash_forside>.wp-block-group__inner-container>.velkomst_tekst>.wp-block-group__inner-container {
+        display: grid;
+        height: 75vh;
         overflow: hidden;
+        background: black;
+    }
+
+    .wp-block-video {
+        grid-area: 1/1;
+
+    }
+
+    .velkomst_tekst .velkomst_tekst {
+        grid-area: 1/1;
+        place-self: center;
     }
 
     .forside_link img {
         width: 100%;
         height: auto;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
     }
 
     .forside_link {
@@ -129,41 +143,20 @@
         color: white;
         font-weight: bold;
         text-shadow: 3px 3px 5px #000;
-        opacity: 90%;
         font-size: 1.8rem;
         padding: 8px;
         text-align: center;
     }
 
-    .wp-image-523 {
-        display: none;
-    }
-
 
     @media(min-width:700px) {
 
-
         .splash_forside .p_text {
-            font-size: 1.5rem;
-            /*width: 600px;*/
-
-        }
-
-        .wp-image-523 {
-            display: block;
-            position: absolute;
-            left: 47%;
-            top: 600px;
             font-size: 1.2rem;
-            width: 50px;
-            height: 20px;
-            padding: 10px;
         }
 
         .splash_forside .text {
-
-            /*width: 600px;*/
-            font-size: 4rem;
+            font-size: 3rem;
         }
     }
 </style>
