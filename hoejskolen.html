@@ -314,10 +314,14 @@
 
         #luk {
             position: fixed;
-            background-color: white;
+            background-color: red;
             color: black;
-            border-radius: 5px;
-            padding: 1rem;
+            padding: 6px;
+            cursor: pointer;
+        }
+
+        #luk:hover {
+            color: white;
         }
 
     </style>
@@ -350,8 +354,13 @@
     <!------ POPUP ---------->
     <section class="popup">
         <article>
-            <div id="luk">X</div>
-            <h2></h2>
+            <div id="luk">x</div>
+            <template id="fag_tmpl">
+                <div class="fag">
+                    <h2 class="tekst-fag"></h2>
+                </div>
+            </template>
+
             <img>
         </article>
     </section>
@@ -557,27 +566,29 @@
             underFag.feed.entry.forEach(fag => {
                 console.log(fag);
                 const minKlon = templatePointer.cloneNode(true).content;
-                minKlon.querySelector("h2").textContent = underFag.title.rendered;
-                minKlon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
+                klon.querySelector("h2").textContent = fag.title.rendered;
+                klon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
                 listPointer.appendChild(minKlon);
             })
         }
 
         function visDetaljer(fagID) {
             let popup = document.querySelector(".popup");
-
-
-            console.log("Goddav")
+            let dest = document.querySelector(".fagene");
+            let temp = document.querySelector("#fag_tmpl");
 
             let faget = underFag.filter(fag => fag.id == fagID)[0];
             console.log("faget", faget)
 
-            //const result = words.filter(word => word.length > 6);
-
             popup.style.display = "block";
-        }
 
-        document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
+
+            let klon = temp.cloneNode(true).content;
+            klon.querySelector("h2").textContent = popup.title.rendered;
+
+            document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
+
+        };
 
     </script>
 </body>
