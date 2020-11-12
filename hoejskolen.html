@@ -225,8 +225,6 @@
             padding-left: 20px;
             border-left: lightblue 1px solid;
             border-right: lightblue 1px solid;
-
-
         }
 
         .fag {
@@ -246,42 +244,82 @@
             border-bottom: solid 10px lightblue;
         }
 
-        /* POPUP */
+        /*---- FOOTER -----*/
 
-        #popup {
-            display: none;
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            color: #3b4141;
+            margin-top: 20px;
+            border-top: 0.5px solid #e2e2e2;
+
+        }
+
+
+        .osher {
+            text-align: center;
+            flex-grow: 2;
+            flex-basis: 400px;
+            margin: 20px;
+            padding: 16px;
+            border-radius: 15px 15px 15px 15px;
+
+        }
+
+
+        .findos {
+            text-align: center;
+            flex-grow: 2;
+            flex-basis: 400px;
+            margin: 20px;
+            padding: 16px;
+            border-radius: 15px 15px 15px 15px;
+
+        }
+
+
+
+        .osher img {
+            width: 7%;
+            clear: both;
+
+        }
+
+        .findos img {
+            width: 5%;
+
+        }
+
+
+        /* -------- POPUP ---------- */
+
+        .popup {
             position: fixed;
-            z-index: 1;
             left: 0;
             top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgb(0, 0, 0, 0.4);
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, .6);
+            display: none;
         }
 
-        .popup-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
+        .popup article {
+
+            width: 70vw;
+            height: 70vh;
+            margin: 4rem auto;
+            margin-top: 10px;
+            background-color: white;
         }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 24px;
-            font-weight: bold;
-            transition-duration: .3s;
-        }
-
-        .close:hover {
+        #luk {
+            position: fixed;
+            background-color: white;
             color: black;
-            text-decoration: none;
-            cursor: pointer;
+            border-radius: 5px;
+            padding: 1rem;
         }
+
     </style>
 </head>
 
@@ -309,6 +347,15 @@
     </header>
 
 
+    <!------ POPUP ---------->
+    <section class="popup">
+        <article>
+            <div id="luk">X</div>
+            <h2></h2>
+            <img>
+        </article>
+    </section>
+
     <!-- Om overfagene -->
 
 
@@ -317,8 +364,6 @@
 
         <p>om fagene...</p>
     </div>
-
-
 
     <!-- TEMPLATES  -->
     <template id="filter_btns_tmpl">
@@ -334,20 +379,9 @@
 
     <template id="fag_tmpl">
         <div class="fag">
-            <h2></h2>
+            <h2 class="tekst-fag"></h2>
         </div>
     </template>
-
-    <div id="popup" class="popupvindue">
-
-        <!---- CONTENT ---->
-
-        <div class="popup-content">
-            <span class="close">&times;</span>
-            <p>...</p>
-        </div>
-
-    </div>
 
     <!-- SITE MENU-->
     <h1 class="overskrift"></h1>
@@ -412,6 +446,11 @@
         let theCategories;
 
         let overFag;
+
+        let filter = "alle";
+        let retter;
+        let container = document.querySelector("#container");
+        let temp = document.querySelector("template");
 
         document.addEventListener("DOMContentLoaded", start);
 
@@ -496,8 +535,10 @@
                 let klon = temp.cloneNode(true).content;
                 klon.querySelector("h2").textContent = fag.title.rendered;
                 klon.querySelector(".fag").addEventListener("click", function() {
-                    dishClick(fag.id)
+                    visDetaljer(fag.id)
                 });
+
+
                 dest.appendChild(klon);
 
             });
@@ -509,24 +550,36 @@
             console.log("ID", id);
         }
 
-        let popup = document.getElementById("popup");
+        function visUnderfag() {
+            const templatePointer = document.querySelector("template");
+            const listPointer = document.querySelector(".fag");
+            listPointer.innerHTML = "";
+            underFag.feed.entry.forEach(fag => {
+                console.log(fag);
+                const minKlon = templatePointer.cloneNode(true).content;
+                minKlon.querySelector("h2").textContent = underFag.title.rendered;
+                minKlon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
+                listPointer.appendChild(minKlon);
+            })
+        }
 
-        let btn = document.getElementsByClassName("fag");
+        function visDetaljer(fagID) {
+            let popup = document.querySelector(".popup");
 
-        let span = document.getElementsByClassName("close")[0];
 
-        btn.onclick = function() {
+            console.log("Goddav")
+
+            let faget = underFag.filter(fag => fag.id == fagID)[0];
+            console.log("faget", faget)
+
+            //const result = words.filter(word => word.length > 6);
+
             popup.style.display = "block";
         }
 
-        span.onclick = function() {
-            popup.style.display = "none";
-        }
+        document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
 
-        window.onclick = function(event) {
-            if (event.target == popup) {
-                popup.style.display = "none";
-            }
-        }
     </script>
-</body></html>
+</body>
+
+</html>
