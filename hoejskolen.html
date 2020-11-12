@@ -305,9 +305,10 @@
 
         .popup article {
 
-            width: 60vw;
-            height: 60vh;
+            width: 70vw;
+            height: 70vh;
             margin: 4rem auto;
+            margin-top: 10px;
             background-color: white;
         }
 
@@ -364,8 +365,6 @@
         <p>om fagene...</p>
     </div>
 
-
-
     <!-- TEMPLATES  -->
     <template id="filter_btns_tmpl">
         <h3></h3>
@@ -383,17 +382,6 @@
             <h2 class="tekst-fag"></h2>
         </div>
     </template>
-
-    <div id="popup" class="popupvindue">
-
-        <!---- CONTENT ---->
-
-        <div class="popup-content">
-            <span class="close">&times;</span>
-            <p>...</p>
-        </div>
-
-    </div>
 
     <!-- SITE MENU-->
     <h1 class="overskrift"></h1>
@@ -547,7 +535,7 @@
                 let klon = temp.cloneNode(true).content;
                 klon.querySelector("h2").textContent = fag.title.rendered;
                 klon.querySelector(".fag").addEventListener("click", function() {
-                    dishClick(fag.id)
+                    visDetaljer(fag.id)
                 });
 
 
@@ -566,17 +554,27 @@
             const templatePointer = document.querySelector("template");
             const listPointer = document.querySelector(".fag");
             listPointer.innerHTML = "";
-            underFag.feed.entry.forEach(underFag => {
-                console.log(underFag);
+            underFag.feed.entry.forEach(fag => {
+                console.log(fag);
                 const minKlon = templatePointer.cloneNode(true).content;
                 minKlon.querySelector("h2").textContent = underFag.title.rendered;
-                minKlon.querySelector("article").addEventListener("click", () => visDetaljer(underFag));
+                minKlon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
                 listPointer.appendChild(minKlon);
             })
         }
 
-        function visDetaljer(underFag) {
-            popup.querySelector("h2").textContent = fag.title.rendered;
+        function visDetaljer(fagID) {
+            let popup = document.querySelector(".popup");
+
+
+            console.log("Goddav")
+
+            let faget = underFag.filter(fag => fag.id == fagID)[0];
+            console.log("faget", faget)
+
+            //const result = words.filter(word => word.length > 6);
+
+            popup.style.display = "block";
         }
 
         document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
