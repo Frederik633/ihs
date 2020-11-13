@@ -29,13 +29,13 @@
  input[type=text] {
      padding-top: 10px;
      border: 1px solid black;
-     font-family: sans-serif;
+     font-family: proxima-nova, sans-serif;
      font-size: 1rem;
  }
 
  header form {
-     padding-top: 36px;
-     padding-left: 90px;
+     padding-top: 38px;
+     padding-left: 30px;
  }
 
 
@@ -45,18 +45,20 @@
      flex-direction: column;
      border-bottom: 1px solid black;
      padding-bottom: 10px;
-
  }
 
  header a {
-     padding: 10px 30px;
+     padding: 10px;
+     align-self: center;
+     font-family: proxima-nova, sans-serif;
      text-decoration: none;
-     font-family: sans-serif;
      font-size: 1.2rem;
      color: black;
-     align-self: center;
  }
 
+ /*header nav .topmenu {
+
+ }*/
 
  .hidden {
      display: none;
@@ -72,6 +74,7 @@
      background-size: cover;
      width: 160px;
      height: 91.5px;
+     padding-left: 50px;
 
 
  }
