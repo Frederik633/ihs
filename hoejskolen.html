@@ -283,6 +283,7 @@
         .filter_nav {
             justify-content: center;
             display: flex;
+            flex-wrap: wrap;
             background-color: white;
 
             width: 100%;
@@ -290,8 +291,7 @@
         }
 
         .filter_nav h3 {
-            display: flex;
-            flex: auto;
+
             margin-right: 20px;
             margin-left: 20px;
             cursor: pointer;
@@ -425,8 +425,6 @@
             margin-top: 50px;
         }
 
-
-
         .popup-img {
 
             display: block;
@@ -448,10 +446,6 @@
 
         .fagpopup {
             margin: 50px;
-        }
-
-        #filter_btns_tmpl {
-            wid
         }
     </style>
 </head>
@@ -582,6 +576,8 @@
         function start() {
 
             getTheCategories();
+
+            document.querySelector(".menuknap").addEventListener("click", toggleMenu);
         }
 
         async function getTheCategories() {
@@ -717,5 +713,21 @@
             }
 
         };
+
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+
+            document.querySelector(".menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector(".menu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+                document.querySelector(".menuknap").innerHTML = "<img src='burgermenu.png' alt='menu logo'>";
+
+            } else {
+                document.querySelector(".menuknap").innerHTML = "<img src='kryds.png' alt='menu x'>";
+            }
+        }
     </script>
 </body></html>
