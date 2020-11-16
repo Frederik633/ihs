@@ -287,7 +287,6 @@
         width: 5%;
 
     }
-
 </style>
 
 <body>
@@ -378,6 +377,7 @@
     </footer>
 
 
+    <!--
     <script>
         "use strict"
 
@@ -466,9 +466,148 @@
         }
 
     </script>
+-->
+
+    <script>
+        "use strict"
+
+        let theCategories;
+
+        let overFag;
+
+        let filter = "alle";
+        let retter;
+        let container = document.querySelector("#container");
+        let temp = document.querySelector("template");
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+
+            getTheCategories();
+        }
+
+        async function getTheCategories() {
+            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/rejse_kategori";
+            let jsonData = await fetch(url);
+            theCategories = await jsonData.json();
+            generateCategoryBTNs();
+
+            underFag();
+
+        }
+
+
+        async function underFag() {
+
+            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
+            let jsonData = await fetch(url);
+            underFag = await jsonData.json();
+            console.log("LOADING DONE");
+
+
+            document.querySelector(".filter_nav h3").click();
+        }
+
+
+        function generateCategoryBTNs() {
+
+            let dest = document.querySelector(".filter_nav");
+            let temp = document.querySelector("#filter_btns_tmpl");
+
+            //  document.querySelector(".filter_nav h3").dataset.id = "alle";
+            //  document.querySelector(".filter_nav h3").addEventListener("click", categoryClick);
+            theCategories.forEach(category => {
+                // fjern uncategorised
+                if (category.slug != "uncategorised") {
+                    let klon = temp.cloneNode(true).content;
+                    klon.querySelector("h3").textContent = category.name;
+                    klon.querySelector("h3").dataset.name = category.name;
+                    klon.querySelector("h3").dataset.id = category.id;
+
+                    klon.querySelector("h3").addEventListener("click", categoryClick)
+                    dest.appendChild(klon);
+                }
+
+            })
+        }
+
+        function categoryClick() {
+
+            console.log(this.dataset.id);
+
+
+            filterContent(this.dataset.id);
+        }
+
+
+        function filterContent(theFilter) {
+
+            let filtrerede;
+            if (theFilter == "alle") {
+                filtrerede = underFag;
+            } else {
+                filtrerede = underFag.filter(fag => fag.categories[0] == theFilter);
+
+            }
+            console.log(filtrerede)
+            showPosts(filtrerede);
+        }
+
+        function showPosts(theFilteredJson) {
+            let dest = document.querySelector(".fagene");
+            let temp = document.querySelector("#fag_tmpl");
+            dest.innerHTML = "";
+            theFilteredJson.forEach(fag => {
+                //                console.log(fag)
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("h2").textContent = fag.title.rendered;
+                klon.querySelector(".fag").addEventListener("click", function() {
+                    visDetaljer(fag.id)
+                });
+
+
+                dest.appendChild(klon);
+
+            });
+
+
+        }
+
+        function dishClick(id) {
+            console.log("ID", id);
+        }
+
+        function visUnderfag() {
+            const templatePointer = document.querySelector("template");
+            const listPointer = document.querySelector(".fag");
+            listPointer.innerHTML = "";
+            underFag.feed.entry.forEach(fag => {
+                console.log(fag);
+                const minKlon = templatePointer.cloneNode(true).content;
+                minKlon.querySelector("h2").textContent = underFag.title.rendered;
+                minKlon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
+                listPointer.appendChild(minKlon);
+            })
+        }
+
+        function visDetaljer(fagID) {
+            let popup = document.querySelector(".popup");
+
+
+            console.log("Goddav")
+
+            let faget = underFag.filter(fag => fag.id == fagID)[0];
+            console.log("faget", faget)
+
+            //const result = words.filter(word => word.length > 6);
+
+            popup.style.display = "block";
+        }
+
+        document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
+    </script>
 
 
 
-</body>
-
-</html>
+</body></html>
