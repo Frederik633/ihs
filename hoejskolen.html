@@ -258,7 +258,6 @@
 
         .overfag-beskrivelse {
             margin: 0 auto;
-            margin-top: 50px;
             margin-bottom: 50px;
             border: black 1px solid;
             max-width: 400px;
@@ -387,16 +386,16 @@
         }
 
         .popup article {
-            width: 90vw;
-            height: auto;
+            width: 60vw;
+
             padding: 4rem auto;
-            padding-top: 10px;
+            margin-top: 10px;
             background-color: white;
         }
 
         #luk {
             position: sticky;
-            width: 20px;
+            width: 40px;
             background-color: red;
             color: black;
             padding: 6px;
@@ -406,6 +405,7 @@
 
         #luk:hover {
             color: white;
+            background-color: indianred;
         }
 
         .popup-beskrivelse {
@@ -414,16 +414,32 @@
 
         .popup-fag {
             margin: 20px;
+            margin-top: 50px;
         }
 
+
+
         .popup-img {
-            width: 30vw;
+
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            padding-bottom: 50px;
+            padding-top: 30px;
+            border-top: black solid 1px;
         }
 
         #fag-side {
             width: 80vw;
             background-color: white;
-            height: 800px;
+            height: auto;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .fagpopup {
+            margin: 50px;
         }
     </style>
 </head>
@@ -455,7 +471,7 @@
     <!------ POPUP ---------->
     <section class="popup">
         <article>
-            <div id="luk">x</div>
+            <div id="luk">Luk</div>
 
             <div class="fagpopup">
                 <h2 class="popup-fag"></h2>
@@ -471,8 +487,6 @@
     <section id="fag-side">
         <div class="overfag-beskrivelse">
             <h1 class="overfag-title">Fagnavn her</h1>
-
-            <p>om fagene...</p>
         </div>
 
         <!-- TEMPLATES  -->
@@ -504,7 +518,7 @@
         <main class="fagene"></main>
 
 
-        <!-- UNDERFAGENE -->
+        <!--- SKEMA --->
 
     </section>
 
@@ -666,7 +680,9 @@
                 const minKlon = templatePointer.cloneNode(true).content;
                 klon.querySelector("h2").textContent = fag.title.rendered;
                 klon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
+                klon.querySelector(".ugeskema").src = fag.ugeskema.guid;
                 listPointer.appendChild(minKlon);
+
             })
 
         }
