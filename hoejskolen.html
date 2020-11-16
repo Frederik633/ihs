@@ -290,6 +290,8 @@
         }
 
         .filter_nav h3 {
+            display: flex;
+            flex: auto;
             margin-right: 20px;
             margin-left: 20px;
             cursor: pointer;
@@ -298,6 +300,7 @@
             transition-duration: .5s;
             border-left: white 1px solid;
             border-right: white 1px solid;
+
         }
 
         .filter_nav h3:hover {
@@ -387,7 +390,7 @@
 
         .popup article {
             width: 60vw;
-
+            border: 10px solid lightblue;
             padding: 4rem auto;
             margin-top: 10px;
             background-color: white;
@@ -401,11 +404,16 @@
             padding: 6px;
             cursor: pointer;
             float: left;
+            transition-duration: .3s;
+            border-right: 1px red solid;
+            border-bottom: 1px red solid;
+            display: none;
         }
 
         #luk:hover {
-            color: white;
-            background-color: indianred;
+            color: red;
+            background-color: white;
+
         }
 
         .popup-beskrivelse {
@@ -440,6 +448,10 @@
 
         .fagpopup {
             margin: 50px;
+        }
+
+        #filter_btns_tmpl {
+            wid
         }
     </style>
 </head>
@@ -485,18 +497,13 @@
     <!-- Om overfagene -->
 
     <section id="fag-side">
-        <div class="overfag-beskrivelse">
+        <template class="overfag-beskrivelse">
             <h1 class="overfag-title">Fagnavn her</h1>
-        </div>
+        </template>
 
         <!-- TEMPLATES  -->
         <template id="filter_btns_tmpl">
             <h3></h3>
-        </template>
-
-        <template id="overfag_header_tmpl">
-            <h1>Huop</h1>
-            <section class="overfag_section"></section>
         </template>
 
         <!----- KNAP ----->
@@ -519,6 +526,8 @@
 
 
         <!--- SKEMA --->
+
+
 
     </section>
 
