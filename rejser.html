@@ -473,7 +473,7 @@
 
         let theCategories;
 
-        let overFag;
+        let underFag;
 
         let filter = "alle";
         let retter;
@@ -493,12 +493,12 @@
             theCategories = await jsonData.json();
             generateCategoryBTNs();
 
-            underFag();
+            hentFag();
 
         }
 
 
-        async function underFag() {
+        async function hentFag() {
 
             let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
             let jsonData = await fetch(url);
@@ -507,6 +507,8 @@
 
 
             document.querySelector(".filter_nav h3").click();
+
+
         }
 
 
@@ -543,6 +545,8 @@
 
         function filterContent(theFilter) {
 
+
+
             let filtrerede;
             if (theFilter == "alle") {
                 filtrerede = underFag;
@@ -559,7 +563,7 @@
             let temp = document.querySelector("#fag_tmpl");
             dest.innerHTML = "";
             theFilteredJson.forEach(fag => {
-                //                console.log(fag)
+                console.log(fag)
                 let klon = temp.cloneNode(true).content;
                 klon.querySelector("h2").textContent = fag.title.rendered;
                 klon.querySelector(".fag").addEventListener("click", function() {
@@ -583,29 +587,28 @@
             const listPointer = document.querySelector(".fag");
             listPointer.innerHTML = "";
             underFag.feed.entry.forEach(fag => {
-                console.log(fag);
+                //console.log(fag);
                 const minKlon = templatePointer.cloneNode(true).content;
-                minKlon.querySelector("h2").textContent = underFag.title.rendered;
-                minKlon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
+                klon.querySelector("h2").textContent = fag.title.rendered;
+                klon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
                 listPointer.appendChild(minKlon);
             })
+
         }
 
         function visDetaljer(fagID) {
             let popup = document.querySelector(".popup");
 
-
-            console.log("Goddav")
-
             let faget = underFag.filter(fag => fag.id == fagID)[0];
             console.log("faget", faget)
 
-            //const result = words.filter(word => word.length > 6);
-
             popup.style.display = "block";
-        }
 
-        document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
+            document.querySelector(".popup-fag").textContent = faget.title.rendered;
+
+            document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
+
+        };
     </script>
 
 
