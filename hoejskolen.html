@@ -252,7 +252,7 @@
 
         /*---------- OVERFAG UNDERFAG BESKRIVELSE ----------*/
 
-        #overfag-title {
+        .overfag-title {
             margin: 0 auto;
         }
 
@@ -446,7 +446,6 @@
         .fagpopup {
             margin: 50px;
         }
-
     </style>
 </head>
 
@@ -489,11 +488,10 @@
     </section>
 
     <!-- Om overfagene -->
-
-    <section id="fag-side">
-        <template class="overfag-beskrivelse">
-            <h1 class="overfag-title">Fagnavn her</h1>
-        </template>
+<section id="fag-side">
+    <template class="overfag-beskrivelse">
+        <h1 class="overfag-title">Fagnavn her</h1>
+    </template>
 
         <!-- TEMPLATES  -->
         <template id="filter_btns_tmpl">
@@ -684,6 +682,7 @@
                 //console.log(fag);
                 const minKlon = templatePointer.cloneNode(true).content;
                 klon.querySelector("h2").textContent = fag.title.rendered;
+                klon.querySelector(".overfag-title").textContent = fag.title.rendered;
                 klon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
                 klon.querySelector(".ugeskema").src = fag.ugeskema.guid;
                 listPointer.appendChild(minKlon);
@@ -729,8 +728,5 @@
                 document.querySelector(".menuknap").innerHTML = "<img src='kryds.png' alt='menu x'>";
             }
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
