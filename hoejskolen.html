@@ -221,7 +221,7 @@
 
         body {
             font-family: sans-serif;
-            background-color: lightblue;
+            background-color: #E9EEF0;
         }
 
         .overskrift,
@@ -252,7 +252,7 @@
 
         /*---------- OVERFAG UNDERFAG BESKRIVELSE ----------*/
 
-        #overfag-title {
+        .overfag-title {
             margin: 0 auto;
         }
 
@@ -407,7 +407,6 @@
             transition-duration: .3s;
             border-right: 1px red solid;
             border-bottom: 1px red solid;
-            display: none;
         }
 
         #luk:hover {
@@ -489,7 +488,6 @@
     </section>
 
     <!-- Om overfagene -->
-
     <section id="fag-side">
         <template class="overfag-beskrivelse">
             <h1 class="overfag-title">Fagnavn her</h1>
@@ -576,6 +574,8 @@
         function start() {
 
             getTheCategories();
+
+            hentInfo();
 
             document.querySelector(".menuknap").addEventListener("click", toggleMenu);
         }
@@ -728,6 +728,17 @@
             } else {
                 document.querySelector(".menuknap").innerHTML = "<img src='kryds.png' alt='menu x'>";
             }
+        }
+
+
+
+        async function hentInfo() {
+
+            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/hojskolen";
+            let jsonData = await fetch(url);
+            underFag = await jsonData.json();
+            console.log("INFO DONE");
+
         }
     </script>
 </body></html>
