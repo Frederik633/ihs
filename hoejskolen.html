@@ -224,11 +224,17 @@
             background-image: url(index_billeder/eowbaggrund.png);
         }
 
-        .overskrift,
-            {
-            margin: 0 auto;
-
+        .overskrift {
+            max-width: 1000px;
+            background-color: white;
+            text-align: center;
+            padding: 0px 0px 30px 0px;
+            font-size: 2rem;
+            font-family: proxima-nova, sans-serif;
+            font-weight: 300;
+            font-style: normal;
         }
+
 
         .fagene {
             display: flex;
@@ -256,12 +262,15 @@
             margin: 0 auto;
         }
 
-        .overfag-beskrivelse {
+        .overfag-besk {
             margin: 0 auto;
-            margin-bottom: 50px;
-            border: black 1px solid;
-            max-width: 400px;
-            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 30px;
+            margin-top: 10px;
+            line-height: 24px;
+            max-width: 600px;
+            text-align: left;
+
         }
 
         #underfag-title {
@@ -399,19 +408,20 @@
 
         #luk {
             position: sticky;
-            width: 40px;
-            background-color: red;
-            color: black;
+            width: 19px;
+            background-color: white;
+            color: red;
             padding: 6px;
             cursor: pointer;
             float: left;
             transition-duration: .3s;
-            border-right: 1px red solid;
-            border-bottom: 1px red solid;
+            font-size: 1.5rem;
+            margin-left: 5px;
+
         }
 
         #luk:hover {
-            color: red;
+            color: black;
             background-color: white;
 
         }
@@ -477,7 +487,7 @@
     <!------ POPUP ---------->
     <section class="popup">
         <article>
-            <div id="luk">Luk</div>
+            <div id="luk">x</div>
 
             <div class="fagpopup">
                 <h2 class="popup-fag"></h2>
@@ -494,9 +504,19 @@
     </section>
 
     <!-- Om overfagene -->
+
     <section id="fag-side">
+
+
+
         <article class="overfag-beskrivelse">
-            <h1 class="overfag-title"></h1>
+
+
+            <div class="overskrift">
+                <h1>Højskolen</h1>
+            </div>
+
+
             <p class="overfag-besk">Hej, forhåbentligt kommende IHS’er!
 
                 Du må være fyldt med forventninger og spørgsmål, hvis du er ved at træffe valget om at skulle på højskole.
