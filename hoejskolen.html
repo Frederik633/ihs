@@ -298,16 +298,16 @@
             padding: 10px;
             color: black;
             transition-duration: .5s;
-            border-left: white 1px solid;
-            border-right: white 1px solid;
+            border-left: white 10px solid;
+            border-right: white 10px solid;
 
         }
 
         .filter_nav h3:hover {
             padding-right: 20px;
             padding-left: 20px;
-            border-left: lightblue 1px solid;
-            border-right: lightblue 1px solid;
+            border-left: green 2px solid;
+            border-right: green 2px solid;
         }
 
         .fag {
@@ -319,12 +319,13 @@
             color: black;
             background-color: white;
             padding-bottom: 32px;
+
         }
 
 
         .fag:hover {
             background-color: white;
-            border-bottom: solid 10px lightblue;
+            border-bottom: solid 10px green;
         }
 
         /*---- FOOTER -----*/
@@ -446,6 +447,7 @@
         .fagpopup {
             margin: 50px;
         }
+
     </style>
 </head>
 
@@ -487,11 +489,27 @@
         </article>
     </section>
 
+    <section id="indhold">
+
+
+    </section>
+
     <!-- Om overfagene -->
     <section id="fag-side">
-        <template class="overfag-beskrivelse">
-            <h1 class="overfag-title">Fagnavn her</h1>
-        </template>
+        <article class="overfag-beskrivelse">
+            <h1 class="overfag-title"></h1>
+            <p class="overfag-besk">Hej, forhåbentligt kommende IHS’er!
+
+                Du må være fyldt med forventninger og spørgsmål, hvis du er ved at træffe valget om at skulle på højskole.
+
+                Her, under “højskole”, kan du finde alt hvad du har brug for at vide om et højskoleophold.
+
+                Menuen til venstre er det du kan fylde i dit skema – dit skema kan du se i bunden af siden.
+
+                Få klikket dig godt igennem siderne og fornem den magi der venter dig.
+
+                Vi vil gøre alt hvad vi kan for at hjælpe dig med at træffe den beslutning der er bedst for dig – så tøv ikke med at kontakte os.</p>
+        </article>
 
         <!-- TEMPLATES  -->
         <template id="filter_btns_tmpl">
@@ -562,6 +580,8 @@
 
         let theCategories;
 
+        let overInfo;
+
         let underFag;
 
         let filter = "alle";
@@ -574,8 +594,6 @@
         function start() {
 
             getTheCategories();
-
-            hentInfo();
 
             document.querySelector(".menuknap").addEventListener("click", toggleMenu);
         }
@@ -730,15 +748,8 @@
             }
         }
 
-
-
-        async function hentInfo() {
-
-            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/hojskolen";
-            let jsonData = await fetch(url);
-            underFag = await jsonData.json();
-            console.log("INFO DONE");
-
-        }
     </script>
-</body></html>
+
+</body>
+
+</html>
