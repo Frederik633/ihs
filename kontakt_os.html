@@ -10,9 +10,26 @@
 </head>
 
 <style>
+    body {
+        background-color: #E9EEF0;
+    }
+
     #kontaktos .sectionwrapper {
         display: flex;
         flex-wrap: wrap;
+    }
+
+    main {
+        padding: 20px;
+        background-color: white;
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-family: proxima-nova, sans-serif;
+        font-weight: 300;
+        font-style: normal;
+
     }
 
     #kontaktos .kontakt {
@@ -23,15 +40,47 @@
         border-radius: 15px 15px 15px 15px;
     }
 
+    .h1tekst {
+        padding: 10px 50px;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-family: proxima-nova, sans-serif;
+
+    }
+
     h1 {
-        font-size: 2rem;
-        text-align: left;
+        font-family: proxima-nova, sans-serif;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
 
 
     }
 
     h2 {
-        font-size: 1rem;
+        padding-bottom: 10px;
+        padding-top: 20px;
+    }
+
+    h4 {
+        padding: 10px 50px;
+        font-family: proxima-nova, sans-serif;
+    }
+
+    .ptekst {
+        line-height: 1.5;
+        padding: 10px 50px;
+    }
+
+    p {
+        line-height: 1.5;
+
+    }
+
+
+    .telefonnr {
+        margin-top: 15px;
+        line-height: 1.5;
+        padding: 10px 50px;
 
     }
 
@@ -51,47 +100,70 @@
     select,
     textarea {
         width: 100%;
-        padding: 12px;
+        padding: 6px;
         border: 1px solid #ccc;
-        border-radius: 4px;
-        resize: vertical;
+        border-radius: 2px;
+        resize: horizontal;
     }
 
     label {
-        padding: 12px 12px 12px 0;
+        padding: 8px 8px 8px 0;
         display: inline-block;
     }
 
-    input[type=send] {
-        background-color: #91D2D9;
-        color: white;
-        padding: 12px 20px;
-        border: none;
+    input[type=book] {
+        background-color: #E9EEF0;
+        color: #000;
+        padding: 12px 10px;
+        border: 1px solid #ccc;
         border-radius: 4px;
         cursor: pointer;
-        float: right;
+        margin-top: 27px;
+
+    }
+
+
+
+    input[type=book]:hover {
+        background-color: #91D2D9;
+        color: white;
+    }
+
+    input[type=send] {
+        background-color: #E9EEF0;
+        color: #000;
+        padding: 12px 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+
     }
 
     input[type=send]:hover {
         background-color: #91D2D9;
+        color: white;
     }
 
     .container {
         border-radius: 5px;
         background-color: #fff;
         padding: 20px;
+
+    }
+
+    .inner_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
     .col-25 {
         float: left;
-        width: 25%;
-        margin-top: 6px;
+        width: 75%;
     }
 
     .col-75 {
         float: left;
         width: 75%;
-        margin-top: 6px;
     }
 
     /* Clear floats after the columns */
@@ -110,6 +182,17 @@
             width: 100%;
             margin-top: 0;
         }
+    }
+
+    @media(max-width:800px) {
+        main {
+            display: block;
+
+        }
+    }
+
+    footer {
+        background: white;
     }
 
 </style>
@@ -136,28 +219,30 @@
             </div>
         </nav>
     </header>
-    <section id="kontaktos">
+    <main>
+        <section id="kontaktos">
 
-        <div class="sectionwrapper">
-            <div class="kontakt">
-                <h1>Kontakt os</h1>
-                <p>Her på siden kan du finde alle relevante kontakt oplysninger og skrive en besked til os.
-                    Vi glæder os til at høre fra dig!<br>
+            <div class="sectionwrapper">
+                <div class="kontakt">
+                    <h1>Kontakt os</h1>
+                    <p>Her på siden kan du finde alle relevante kontakt oplysninger og skrive en besked til os.
+                        Vi glæder os til at høre fra dig!<br>
 
-                    <br>tlf: (+45) 7442 1848<br>
-                    e mail: info@ihs.dk<br>
-                    CVR 35902619<br></p>
+                        <br>tlf: (+45) 7442 1848<br>
+                        e mail: info@ihs.dk<br>
+                        CVR 35902619<br></p>
 
-                <h2>Adresse</h2>
-                <p>Idrætshøjskolen Sønderborg<br>
-                    Friheds allé 42<br>
-                    6400 Sønderborg<br></p>
+                    <h2>Adresse</h2>
+                    <p>Idrætshøjskolen Sønderborg<br>
+                        Friheds allé 42<br>
+                        6400 Sønderborg<br></p>
 
 
 
+                </div>
             </div>
-
-
+        </section>
+        <!--
             <div class="kontakt">
                 <h1>Skriv til os</h1>
                 <p>
@@ -183,8 +268,11 @@
 
                 </p>
             </div>
-            <div class="container">
-                <form action="/action_page.php">
+            -->
+        <div class="container">
+            <h1> Skriv til os </h1>
+            <form action="/action_page.php">
+                <div class="inner_container">
                     <div class="row">
                         <div class="col-25">
                             <label for="fname">Navn*</label>
@@ -192,20 +280,22 @@
                         <div class="col-75">
                             <input type="text" id="fname" name="fornavn" placeholder="...">
                         </div>
-                    </div>
-                    <div class="row">
+
+
                         <div class="col-25">
                             <label for="lname">E-mail*</label>
                         </div>
                         <div class="col-75">
                             <input type="text" id="lname" name="email" placeholder="...">
                         </div>
-                    </div>
-                    <div class="row">
+
+
                         <div class="col-25">
-                            <label for="country">Emne</label>
+                            <label for="lname">Emne</label>
                         </div>
-                        <input type="text" id="lname" name="emne" placeholder="...">
+                        <div class="col-75">
+                            <input type="text" id="lname" name="emne" placeholder="...">
+                        </div>
                     </div>
 
                     <div class="row">
@@ -213,19 +303,84 @@
                             <label for="subject">Besked</label>
                         </div>
                         <div class="col-75">
-                            <textarea id="subject" name="besked" placeholder="Skriv din besked her.." style="height:200px"></textarea>
+                            <textarea id="subject" name="besked" placeholder="Skriv din besked her.." style="height:170px"></textarea>
+                        </div>
+                        <input type="Send" value="Send">
+                    </div>
+                </div>
+
+                <h2>Book en rundvisning</h2>
+                <p>
+                    Book din rundvisning via formularen nedenfor eller kontakt os på event@ihs.dk eller 7442 1848
+                </p>
+
+                <div class="inner_container">
+
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="fname">Fornavn</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="fname" name="fornavn" placeholder="...">
+                        </div>
+
+                        <div class="col-25">
+                            <label for="lname">Efternavn</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="lname" name="efternavn" placeholder="...">
+                        </div>
+
+                        <div class="col-25">
+                            <label for="fname">E-mail</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="fname" name="E-mail" placeholder="...">
+                        </div>
+
+                        <div class="col-25">
+                            <label for="fname">Tlf nr.</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="fname" name="Tlf nr." placeholder="...">
                         </div>
                     </div>
                     <div class="row">
-                        <input type="Send" value="Send">
+                        <div class="col-25">
+                            <label for="fname">Dag</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="fname" name="dag" placeholder="...">
+                        </div>
+
+                        <div class="col-25">
+                            <label for="fname">Måned</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="fname" name="måned" placeholder="...">
+                        </div>
+
+                        <div class="col-25">
+                            <label for="fname">År</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="fname" name="År" placeholder="...">
+                        </div>
+                        <input type="Book" value="Book">
+
                     </div>
-                </form>
-            </div>
 
 
+
+                </div>
+            </form>
         </div>
-    </section>
 
+
+
+
+    </main>
 
     <footer>
         <div class="osher">
