@@ -4,295 +4,504 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rejser</title>
+    <title>Velkommen til IHS</title>
+
     <meta name="robots" content="noindex">
-</head>
-
-<style>
-    header nav a:visited {
-        color: black;
-    }
-
-    header nav a:hover {
-        color: green;
-    }
-
-    header nav a:active {
-        color: black;
-    }
-
-    header {
-        width: 100%;
-        position: sticky;
-        transition-duration: .5s;
-        top: 0;
-        background-color: white;
-    }
-
-    input[type=text] {
-        padding-top: 10px;
-        border: 1px solid black;
-        font-family: sans-serif;
-        font-size: 1rem;
-    }
-
-    header form {
-        padding-top: 36px;
-        padding-left: 90px;
-    }
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /*------------menu-------------*/
+        * {
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
 
 
-    .menu {
-        display: flex;
-        list-style-type: none;
-        flex-direction: column;
-        border-bottom: 1px solid black;
-        padding-bottom: 10px;
+        /*------------menu-------------*/
 
-    }
+        header nav a:visited {
+            color: black;
+        }
 
-    header a {
-        padding: 10px 30px;
-        text-decoration: none;
-        font-family: sans-serif;
-        font-size: 1.2rem;
-        color: black;
-        align-self: center;
-    }
+        header nav a:hover {
+            color: green;
+        }
+
+        header nav a:active {
+            color: green;
+        }
+
+        header {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 1;
+        }
+
+        input[type=text] {
+            padding-top: 10px;
+            border: 1px solid black;
+            font-family: proxima-nova, sans-serif;
+            font-size: 1rem;
+        }
+
+        header form {
+            padding-top: 38px;
+            padding-left: 30px;
+        }
 
 
-    .hidden {
-        display: none;
-    }
+        .menu {
+            display: flex;
+            list-style-type: none;
+            flex-direction: column;
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+        }
 
-    .menuknap {
-        display: inline-block;
-    }
+        header a {
+            padding: 10px;
+            align-self: center;
+            font-family: proxima-nova, sans-serif;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: black;
+        }
 
+        /*header nav .topmenu {
 
-    .logo {
-        background-image: url(https://static.wixstatic.com/media/91140a_8232be4747aa4e78a7473068da1124b2.png/v1/fill/w_200,h_114,al_c,q_85,usm_0.66_1.00_0.01/91140a_8232be4747aa4e78a7473068da1124b2.webp);
-        background-size: cover;
-        width: 160px;
-        height: 91.5px;
+ }*/
 
-
-    }
-
-    /*---------------menu slut--------------*/
-
-    .forside img {
-        width: 28%;
-        margin: 30px 40px;
-
-    }
-
-    .forside {
-        display: flex;
-        justify-content: center;
-
-    }
-
-    .text {
-        position: fixed;
-        top: 70%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 600px;
-        height: 200px;
-        background-color: white;
-        font-size: 3rem;
-        text-align: center;
-
-    }
-
-    img.wp-image-167 {
-        width: 100%;
-        height: 90vh;
-        max-width: none;
-        background-size: cover;
-        background-position: 0% 100%;
-        border-radius: 0px;
-    }
-
-    figure {
-        display: block;
-        margin-block-start: 0;
-        margin-block-end: 0;
-        margin-inline-start: 0;
-        margin-inline-end: 0;
-    }
-
-    /*---------------------------@media---------------------------*/
-
-    @media(min-width:700px) {
-        .menuknap {
+        .hidden {
             display: none;
         }
 
-        .menu.hidden {
+        .menuknap {
+            display: inline-block;
+        }
+
+
+        .logo {
+            background-image: url(https://static.wixstatic.com/media/91140a_8232be4747aa4e78a7473068da1124b2.png/v1/fill/w_200,h_114,al_c,q_85,usm_0.66_1.00_0.01/91140a_8232be4747aa4e78a7473068da1124b2.webp);
+            background-size: cover;
+            width: 160px;
+            height: 91.5px;
+            padding-left: 50px;
+
+
+        }
+
+        /*---------------menu slut--------------*/
+
+
+
+
+        /*_________________________Footer_________________________*/
+        footer {
             display: flex;
+            flex-wrap: wrap;
+            color: #3b4141;
+            background-color: white;
+            margin-top: 20px;
+            border-top: 0.5px solid #e2e2e2;
+
         }
 
-        .menu {
-            flex-direction: row;
+
+        .osher {
+            text-align: center;
+            flex-grow: 2;
+            flex-basis: 400px;
+            margin: 20px;
+            padding: 16px;
+            border-radius: 15px 15px 15px 15px;
+
         }
-    }
 
 
-    body {
-        font-family: sans-serif;
-    }
+        .findos {
+            text-align: center;
+            flex-grow: 2;
+            flex-basis: 400px;
+            margin: 20px;
+            padding: 16px;
+            border-radius: 15px 15px 15px 15px;
 
-    .overskrift,
-    nav {
-        margin: 0 auto;
-
-    }
-
-    .fagene {
-
-        margin: 0 auto;
-        margin-top: 100px;
-        width: 60vw;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        grid-gap: 20px;
-    }
+        }
 
 
 
-    h2 {
-        margin: 0;
-        font-size: 18px;
-        padding-top: 34px;
-        align-self: center;
-    }
+        .osher img {
+            width: 7%;
+            clear: both;
 
-    /*---------- OVERFAG UNDERFAG BESKRIVELSE ----------*/
+        }
 
-    #overfag-title {
-        margin: 0 auto;
-    }
+        .findos img {
+            width: 5%;
 
-    .overfag-beskrivelse {
-        margin: 0 auto;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        border: black 1px solid;
-        max-width: 400px;
-        text-align: center;
-    }
+        }
 
-    #underfag-title {
-        margin: 0 auto;
-    }
+        /*---------------------------footer slutter---------------------------*/
+        /*---------------------------@media---------------------------*/
 
-    .underfag-beskrivelse {
-        margin: 0 auto;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        border: black 1px solid;
-        max-width: 400px;
-        text-align: center;
-    }
+        @media(min-width:1276px) {
+            .menuknap {
+                display: none;
+            }
+
+            .menu.hidden {
+                display: flex;
+            }
+
+            .menu {
+                flex-direction: row;
+            }
+        }
 
 
-    /*---------- FILTER ----------*/
+        .forside img {
+            width: 28%;
+            margin: 30px 40px;
 
-    .filter_nav {
-        justify-content: center;
-        display: flex;
-        background-color: white;
-        width: 100%;
+        }
 
-    }
+        .forside {
+            display: flex;
+            justify-content: center;
 
-    .filter_nav h3 {
-        margin-right: 20px;
-        margin-left: 20px;
-        cursor: pointer;
-        padding: 10px;
-        color: black;
-        transition-duration: .5s;
-        border-left: white 1px solid;
-        border-right: white 1px solid;
-    }
+        }
 
-    .filter_nav h3:hover {
-        padding-right: 20px;
-        padding-left: 20px;
-        border-left: lightblue 1px solid;
-        border-right: lightblue 1px solid;
+        .text {
+            position: fixed;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 200px;
+            background-color: white;
+            font-size: 3rem;
+            text-align: center;
 
+        }
 
-    }
+        img.wp-image-167 {
+            width: 100%;
+            height: 90vh;
+            max-width: none;
+            background-size: cover;
+            background-position: 0% 100%;
+            border-radius: 0px;
+        }
 
-    .fag {
-        cursor: pointer;
-        border: black 1px solid;
-        text-align: center;
-        transition-duration: .3s;
-        max-width: 250px;
-        color: black;
-        background-color: white;
-        padding-bottom: 32px;
-    }
+        figure {
+            display: block;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-inline-start: 0;
+            margin-inline-end: 0;
+        }
 
+        /*---------------------------@media---------------------------*/
 
-    .fag:hover {
-        background-color: white;
-        border-bottom: solid 10px lightblue;
-    }
+        @media(min-width:700px) {
+            .menuknap {
+                display: none;
+            }
 
+            .menu.hidden {
+                display: flex;
+            }
 
-    /*---- FOOTER -----*/
-
-    footer {
-        display: flex;
-        flex-wrap: wrap;
-        color: #3b4141;
-        margin-top: 20px;
-        border-top: 0.5px solid #e2e2e2;
-    }
-
-
-    .osher {
-        text-align: center;
-        flex-grow: 2;
-        flex-basis: 400px;
-        margin: 20px;
-        padding: 16px;
-        border-radius: 15px 15px 15px 15px;
-    }
+            .menu {
+                flex-direction: row;
+            }
+        }
 
 
-    .findos {
-        text-align: center;
-        flex-grow: 2;
-        flex-basis: 400px;
-        margin: 20px;
-        padding: 16px;
-        border-radius: 15px 15px 15px 15px;
-    }
+        body {
+            font-family: sans-serif;
+            background-color: lightblue;
+        }
+
+        .overskrift,
+            {
+            margin: 0 auto;
+
+        }
+
+        .fagene {
+            display: flex;
+            flex: auto;
+            margin: 0 auto;
+            margin-top: 100px;
+            width: 60vw;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
 
 
 
-    .osher img {
-        width: 7%;
-        clear: both;
-    }
+        h2 {
+            margin: 0;
+            font-size: 18px;
+            padding-top: 34px;
+            align-self: center;
+        }
 
-    .findos img {
-        width: 5%;
+        /*---------- OVERFAG UNDERFAG BESKRIVELSE ----------*/
 
-    }
-</style>
+        #overfag-title {
+            margin: 0 auto;
+        }
+
+        .overfag-beskrivelse {
+            margin: 0 auto;
+            margin-bottom: 50px;
+            border: black 1px solid;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        #underfag-title {
+            margin: 0 auto;
+        }
+
+        .underfag-beskrivelse {
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border: black 1px solid;
+            max-width: 400px;
+            text-align: center;
+        }
+
+
+        /*---------- FILTER ----------*/
+
+        .filter_nav {
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: white;
+
+            width: 100%;
+
+        }
+
+        .filter_nav h3 {
+
+            margin-right: 20px;
+            margin-left: 20px;
+            cursor: pointer;
+            padding: 10px;
+            color: black;
+            transition-duration: .5s;
+            border-left: white 1px solid;
+            border-right: white 1px solid;
+
+        }
+
+        .filter_nav h3:hover {
+            padding-right: 20px;
+            padding-left: 20px;
+            border-left: lightblue 1px solid;
+            border-right: lightblue 1px solid;
+        }
+
+        .fag {
+            cursor: pointer;
+            border: black 1px solid;
+            text-align: center;
+            transition-duration: .3s;
+            min-width: 250px;
+            color: black;
+            background-color: white;
+            padding-bottom: 32px;
+        }
+
+
+        .fag:hover {
+            background-color: white;
+            border-bottom: solid 10px lightblue;
+        }
+
+        /*---- FOOTER -----*/
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            color: #3b4141;
+            margin-top: 20px;
+            border-top: 0.5px solid #e2e2e2;
+
+        }
+
+
+        .osher {
+            text-align: center;
+            flex-grow: 2;
+            flex-basis: 400px;
+            margin: 20px;
+            padding: 16px;
+            border-radius: 15px 15px 15px 15px;
+
+        }
+
+
+        .findos {
+            text-align: center;
+            flex-grow: 2;
+            flex-basis: 400px;
+            margin: 20px;
+            padding: 16px;
+            border-radius: 15px 15px 15px 15px;
+
+        }
+
+
+
+        .osher img {
+            width: 7%;
+            clear: both;
+
+        }
+
+        .findos img {
+            width: 5%;
+
+        }
+
+
+        /* -------- POPUP ---------- */
+
+        .popup {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, .6);
+            display: none;
+            overflow: auto;
+            z-index: 2;
+        }
+
+        .popup article {
+            width: 60vw;
+            border: 10px solid lightblue;
+            padding: 4rem auto;
+            margin-top: 10px;
+            background-color: white;
+        }
+
+        #luk {
+            position: sticky;
+            width: 40px;
+            background-color: red;
+            color: black;
+            padding: 6px;
+            cursor: pointer;
+            float: left;
+            transition-duration: .3s;
+            border-right: 1px red solid;
+            border-bottom: 1px red solid;
+            display: none;
+        }
+
+        #luk:hover {
+            color: red;
+            background-color: white;
+
+        }
+
+        .popup-beskrivelse {
+            margin: 20px;
+        }
+
+        .popup-fag {
+            margin: 20px;
+            margin-top: 50px;
+        }
+
+        .popup-img {
+
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            padding-bottom: 50px;
+            padding-top: 30px;
+            border-top: black solid 1px;
+        }
+
+        #fag-side {
+            width: 80vw;
+            background-color: white;
+            height: auto;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .fagpopup {
+            margin: 50px;
+        }
+
+        .buttons {
+            display: flex;
+            padding-bottom: 30px;
+            padding-top: 20px;
+            max-width: 1000px;
+            align-self: center;
+            font-family: proxima-nova, sans-serif;
+            font-weight: 300;
+            background: white;
+        }
+
+
+        a.button {
+
+            text-decoration: none;
+            cursor: pointer;
+            text-align: center;
+            transition-duration: .3s;
+            color: black;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            flex-grow: 1;
+            flex-basis: auto;
+            max-width: 1000px;
+            background-color: white;
+            color: black;
+            background-color: lightblue;
+            margin: 0px 45px 0px 45px;
+            border-radius: 3px;
+            padding: 15px;
+
+        }
+
+        .buttons a:hover {
+            color: white;
+            background-color: green;
+
+        }
+
+        .overskrift {
+            max-width: 1000px;
+            background-color: white;
+            text-align: center;
+            padding: 30px 0px 30px 0px;
+            font-size: 1.25rem;
+            font-family: proxima-nova, sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+    </style>
+</head>
 
 <body>
-
-    <!-- menu -->
-
     <header>
         <nav>
             <div class="menuknap"><img src="burgermenu.png" alt="burgermenu"></div>
@@ -314,22 +523,25 @@
             </div>
         </nav>
     </header>
+    <div class="overskrift">
+        <h1>Rejser</h1>
+    </div>
 
-    <!-- TEMPLATES  -->
-    <template id="filter_btns_tmpl">
-        <h3></h3>
-    </template>
+    <div class="buttons">
 
-    <template id="overfag_header_tmpl">
-        <h1>Flip flop</h1>
-        <section class="overfag_section"></section>
-    </template>
+        <a href="https://booking.ihs.dk/da/tilmelding-hojskole.asp" class="button">Tanzania/Zanzibar</a>
+        <a href="https://www.ihs.dk/ugekurser" class="button">Island</a>
+        <a href="kontakt_os.html" class="button">Kreta</a>
+        <a href="kontakt_os.html" class="button">Skitur i alperne</a>
+
+    </div>
+
 
     <!----- KNAP ----->
 
     <template id="fag_tmpl">
         <div class="fag">
-            <h2 class="tekst-rejse"></h2>
+            <h2 class="tekst-fag"></h2>
         </div>
     </template>
 
@@ -342,6 +554,12 @@
     </nav>
     <!--  Fagene  -->
     <main class="fagene"></main>
+
+
+    <!--- SKEMA --->
+
+
+
 
     <footer>
         <div class="osher">
@@ -372,101 +590,10 @@
             <a href="file:///Users/mariajorgensen/Documents/kea/2_semester/tema9/tema9_ihs/kontakt_os.html">
                 <img src="mail.png" alt="mail"></a>
 
-
         </div>
     </footer>
 
 
-    <!--
-    <script>
-        "use strict"
-
-        let theCategories;
-
-        let overFag;
-
-        document.addEventListener("DOMContentLoaded", start);
-
-        function start() {
-
-            getTheCategories();
-        }
-
-        async function getTheCategories() {
-            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/rejse_kategori";
-            let jsonData = await fetch(url);
-            theCategories = await jsonData.json();
-            generateCategoryBTNs();
-
-            underFag();
-
-        }
-
-
-        async function underFag() {
-
-            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/alperne";
-            let jsonData = await fetch(url);
-            underFag = await jsonData.json();
-            console.log("LOADING DONE");
-
-
-            document.querySelector(".filter_nav h3").click();
-        }
-
-
-        function generateCategoryBTNs() {
-
-            let dest = document.querySelector(".filter_nav");
-            let temp = document.querySelector("#filter_btns_tmpl");
-
-            //  document.querySelector(".filter_nav h3").dataset.id = "alle";
-            //  document.querySelector(".filter_nav h3").addEventListener("click", categoryClick);
-            theCategories.forEach(category => {
-                // fjern uncategorised
-                if (category.slug != "uncategorised") {
-                    let klon = temp.cloneNode(true).content;
-                    klon.querySelector("h3").textContent = category.name;
-                    klon.querySelector("h3").dataset.name = category.name;
-                    klon.querySelector("h3").dataset.id = category.id;
-
-                    klon.querySelector("h3").addEventListener("click", categoryClick)
-                    dest.appendChild(klon);
-                }
-
-            })
-        }
-
-        function categoryClick() {
-
-            console.log(this.dataset.id);
-        }
-
-
-        function showPosts(theFilteredJson) {
-            let dest = document.querySelector(".fagene");
-            let temp = document.querySelector("#fag_tmpl");
-            dest.innerHTML = "";
-            theFilteredJson.forEach(fag => {
-                //                console.log(fag)
-                let klon = temp.cloneNode(true).content;
-                klon.querySelector("h2").textContent = fag.title.rendered;
-                klon.querySelector(".fag").addEventListener("click", function() {
-                    dishClick(fag.id)
-                });
-                dest.appendChild(klon);
-
-            });
-
-
-        }
-
-        function dishClick(id) {
-            console.log("ID", id);
-        }
-
-    </script>
--->
 
     <script>
         "use strict"
@@ -485,10 +612,12 @@
         function start() {
 
             getTheCategories();
+
+            document.querySelector(".menuknap").addEventListener("click", toggleMenu);
         }
 
         async function getTheCategories() {
-            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/rejse_kategori";
+            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/categories";
             let jsonData = await fetch(url);
             theCategories = await jsonData.json();
             generateCategoryBTNs();
@@ -566,6 +695,7 @@
                 console.log(fag)
                 let klon = temp.cloneNode(true).content;
                 klon.querySelector("h2").textContent = fag.title.rendered;
+
                 klon.querySelector(".fag").addEventListener("click", function() {
                     visDetaljer(fag.id)
                 });
@@ -591,7 +721,9 @@
                 const minKlon = templatePointer.cloneNode(true).content;
                 klon.querySelector("h2").textContent = fag.title.rendered;
                 klon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
+                klon.querySelector(".ugeskema").src = fag.ugeskema.guid;
                 listPointer.appendChild(minKlon);
+
             })
 
         }
@@ -605,12 +737,36 @@
             popup.style.display = "block";
 
             document.querySelector(".popup-fag").textContent = faget.title.rendered;
+            document.querySelector(".popup-beskrivelse").innerHTML = faget.content.rendered;
+            document.querySelector(".popup-img").src = faget.billede.guid;
 
             document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
 
+            window.onclick = function(event) {
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                }
+            }
+
         };
+
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+
+            document.querySelector(".menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector(".menu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+                document.querySelector(".menuknap").innerHTML = "<img src='burgermenu.png' alt='menu logo'>";
+
+            } else {
+                document.querySelector(".menuknap").innerHTML = "<img src='kryds.png' alt='menu x'>";
+            }
+        }
+
     </script>
+</body>
 
-
-
-</body></html>
+</html>
