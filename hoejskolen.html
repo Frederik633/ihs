@@ -221,7 +221,7 @@
 
         body {
             font-family: sans-serif;
-            background-color: lightblue;
+            background-color: #E9EEF0;
         }
 
         .overskrift,
@@ -488,10 +488,10 @@
     </section>
 
     <!-- Om overfagene -->
-<section id="fag-side">
-    <template class="overfag-beskrivelse">
-        <h1 class="overfag-title">Fagnavn her</h1>
-    </template>
+    <section id="fag-side">
+        <template class="overfag-beskrivelse">
+            <h1 class="overfag-title">Fagnavn her</h1>
+        </template>
 
         <!-- TEMPLATES  -->
         <template id="filter_btns_tmpl">
@@ -574,6 +574,8 @@
         function start() {
 
             getTheCategories();
+
+            hentInfo();
 
             document.querySelector(".menuknap").addEventListener("click", toggleMenu);
         }
@@ -682,7 +684,6 @@
                 //console.log(fag);
                 const minKlon = templatePointer.cloneNode(true).content;
                 klon.querySelector("h2").textContent = fag.title.rendered;
-                klon.querySelector(".overfag-title").textContent = fag.title.rendered;
                 klon.querySelector("article").addEventListener("click", () => visDetaljer(fag));
                 klon.querySelector(".ugeskema").src = fag.ugeskema.guid;
                 listPointer.appendChild(minKlon);
@@ -727,6 +728,17 @@
             } else {
                 document.querySelector(".menuknap").innerHTML = "<img src='kryds.png' alt='menu x'>";
             }
+        }
+
+
+
+        async function hentInfo() {
+
+            let url = "http://vais.dk/kea/02_SEM/tema9/ihs/wordpress/wp-json/wp/v2/hojskolen";
+            let jsonData = await fetch(url);
+            underFag = await jsonData.json();
+            console.log("INFO DONE");
+
         }
     </script>
 </body></html>
