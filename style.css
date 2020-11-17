@@ -14,8 +14,9 @@
      color: green;
  }
 
- header nav a:active {
+ .selected {
      color: green;
+     border-bottom: 1px solid black;
  }
 
  header {
