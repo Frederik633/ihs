@@ -202,6 +202,10 @@
             margin-inline-end: 0;
         }
 
+        .overfag-besk {
+            max-width: 300px;
+        }
+
         /*---------------------------@media---------------------------*/
 
         @media(min-width:700px) {
@@ -215,6 +219,17 @@
 
             .menu {
                 flex-direction: row;
+            }
+
+            .overfag-besk {
+                margin: 0 auto;
+                margin-bottom: 10px;
+                padding-bottom: 30px;
+                margin-top: 10px;
+                line-height: 24px;
+                max-width: 800px;
+                text-align: left;
+
             }
         }
 
@@ -262,16 +277,7 @@
             margin: 0 auto;
         }
 
-        .overfag-besk {
-            margin: 0 auto;
-            margin-bottom: 10px;
-            padding-bottom: 30px;
-            margin-top: 10px;
-            line-height: 24px;
-            max-width: 600px;
-            text-align: left;
 
-        }
 
         #underfag-title {
             margin: 0 auto;
@@ -371,7 +377,6 @@
         }
 
 
-
         .osher img {
             width: 7%;
             clear: both;
@@ -447,7 +452,7 @@
         }
 
         #fag-side {
-            width: 80vw;
+            max-width: 1000px;
             background-color: white;
             height: auto;
             padding-top: 50px;
@@ -457,6 +462,7 @@
         .fagpopup {
             margin: 50px;
         }
+
     </style>
 </head>
 
@@ -766,6 +772,9 @@
                 document.querySelector(".menuknap").innerHTML = "<img src='kryds.png' alt='menu x'>";
             }
         }
+
     </script>
 
-</body></html>
+</body>
+
+</html>
