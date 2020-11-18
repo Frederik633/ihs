@@ -335,7 +335,6 @@
             color: #3b4141;
             margin-top: 20px;
             border-top: 0.5px solid #e2e2e2;
-            height: 305px;
         }
 
 
@@ -497,7 +496,7 @@
             max-width: 1000px;
             background-color: white;
             text-align: center;
-            padding: 30px 0px 0px 0px;
+            padding: 10px 0px 10px 0px;
             font-size: 1.25rem;
             font-family: proxima-nova, sans-serif;
             font-weight: 300;
@@ -515,6 +514,24 @@
         body {
             background-image: url(index_billeder/eowbaggrund.png);
         }
+
+
+
+        .skibillede img {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (min-width: 1000px) {
+            .skibillede img {
+                width: 600px;
+                object-fit: contain;
+                text-align: center;
+                display: flex;
+                padding: 25px 0px 25px 0px;
+            }
+        }
+
     </style>
 </head>
 
@@ -540,14 +557,7 @@
             </div>
         </nav>
     </header>
-    <div class="overskrift">
-        <h1>Rejser</h1>
-    </div>
 
-    <section id="indhold">
-
-
-    </section>
 
     <div class="buttons">
 
@@ -557,6 +567,17 @@
         <a href="alperne.html" class="button">Skitur i alperne</a>
 
     </div>
+
+    <div class="overskrift">
+        <h1>Skitur i alperne</h1>
+    </div>
+
+    <section id="indhold">
+
+
+    </section>
+
+
 
 
 
@@ -595,9 +616,12 @@
 
 
     <script>
-        let id = 13
+        let id = 617;
+
     </script>
 
     <script src="script.js"></script>
 
-</body></html>
+</body>
+
+</html>
